@@ -1,0 +1,57 @@
+version: "3"
+
+networks:
+  default:
+    external:
+      name: database_redmine_sharing
+
+services:
+  redmine_web:
+    build:
+      context: .
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      RAILS_MAX_THREADS: 5
+    networks:
+     - "default"
+    volumes:
+      - .:/myapp
+      - redmine_bundle:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+  db:
+    container_name: redmine_db
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    restart: always
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD:
+    volumes:
+      - psql12_5:/var/lib/postgresql/data
+volumes:
+  redmine_bundle:
+  psql12_5:
+    name: redmine_psql12_5
+  bundle:
+    name: redmine_bundle
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
+    name: database_redmine_sharing
+    ipam:
+      driver: default
