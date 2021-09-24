@@ -25,7 +25,7 @@
 
 ### Step6:
 
-`docker-compose run redmine_web up`
+`docker-compose up`
 
 ### Step7:
 
