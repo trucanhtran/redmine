@@ -6,4 +6,5 @@ Redmine::Plugin.register :polls do
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
 
+  menu :application_menu, :polls, { controller: 'polls', action: 'index' }, caption: 'Polls'
 end
