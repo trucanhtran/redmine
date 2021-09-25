@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+  before_action :find_project, :authorize, only: [:index, :vote]
 
   def index
     @polls = Poll.all
@@ -11,5 +12,12 @@ class PollsController < ApplicationController
       flash[:notice] = 'Vote saved.'
     end
     redirect_to polls_path(project_id: params[:project_id])
+  end
+
+  private
+
+  def find_project
+    # @project variable must be set before calling the authorize filter
+    @project = Project.find_by(id: params[:project_id])
   end
 end
