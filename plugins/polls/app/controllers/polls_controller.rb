@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :find_project, :authorize, only: [:index, :vote]
+  before_action :find_project, only: [:index, :vote]
 
   def index
     @polls = Poll.all
