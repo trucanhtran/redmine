@@ -1,0 +1,6 @@
+<% if User.current.allowed_to?(:comment_and_rate_articles,
+@project) %>
+<%= link_to l(:label_new_comment), { :controller =>
+"articles",:action => "comment", :article_id => @article,
+:project_id=> @project },}, :remote => true, :method => :get %>
+<% end %>
