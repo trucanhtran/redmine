@@ -1,4 +1,13 @@
 class CategoryController < ApplicationController
-    before_filter :find_project_by_project_id, :authorize
+ 
+  def update
+    @category.user_whitelist = 
+      if params["user_whitelist"].blank?
+        ""
+      else
+        params["user_whitelist"].join(",")
+      end
+      
+  end
 
 end
