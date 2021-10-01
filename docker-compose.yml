@@ -1,57 +1,40 @@
-version: "3"
-
-networks:
-  default:
-    external:
-      name: database_redmine_sharing
+version: "3.7"
 
 services:
-  redmine_web:
-    build:
-      context: .
+  db:
+    image: mysql:8.0.21
+    command:
+      - --default-authentication-plugin=mysql_native_password
     environment:
-      DATABASE_HOST: db
-      DATABASE_USER: postgres
-      RAILS_MAX_THREADS: 5
-    networks:
-     - "default"
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=redmine_development
+    ports:
+      - "3306:3306"
     volumes:
-      - .:/myapp
-      - redmine_bundle:/usr/local/bundle
+      - mysql:/var/lib/mysql
+  redis:
+    image: "redis:4.0-alpine"
+    command: redis-server
+    volumes:
+      - "redis:/data"
+  website:
+    depends_on:
+      - "db"
+      - "redis"
+    build: .
     ports:
       - "3000:3000"
     tty: true
     stdin_open: true
     restart: always
-    links:
-      - db
-    depends_on:
-      - db
-  db:
-    container_name: redmine_db
-    image: postgres:latest
-    ports:
-      - '5432:5432'
-    restart: always
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD:
     volumes:
-      - psql12_5:/var/lib/postgresql/data
+      - ".:/myapp"
+      - redmine_bundle:/usr/local/bundle
 volumes:
+  redis:
+  db:
   redmine_bundle:
-  psql12_5:
-    name: redmine_psql12_5
   bundle:
     name: redmine_bundle
-  postgres_data:
+  mysql:
     driver: local
-
-networks:
-  default:
-    driver: bridge
-    name: database_redmine_sharing
-    ipam:
-      driver: default
