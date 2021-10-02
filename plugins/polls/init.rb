@@ -1,3 +1,12 @@
+require 'redmine'
+
+Rails.application.config.to_prepare do
+  unless Issue.include?(IssuePatch)
+    Issue.send(:include, IssuePatch)
+  end
+end
+
+
 Redmine::Plugin.register :polls do
   name 'Polls plugin'
   author 'Author name'
