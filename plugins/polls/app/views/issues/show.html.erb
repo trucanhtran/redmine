@@ -58,7 +58,7 @@
 
   #add field Actual End Date
   unless @issue.disabled_core_fields.include?('actual_end_date')
-    rows.left l(:field_actual_end_date), (@issue.actual_end_date_issue.present? ? @issue.actual_end_date_issue : ""), class: 'actual-end-date'
+    rows.left l(:field_actual_end_date), (@issue.actual_end_date_issue.present? ? @issue.actual_end_date_issue.strftime("%m/%d/%Y") : ""), class: 'actual-end-date'
   end
   
   unless @issue.disabled_core_fields.include?('start_date')

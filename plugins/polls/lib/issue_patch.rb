@@ -8,11 +8,12 @@ module IssuePatch
   
     module InstanceMethods
       def after_save_custom_workflows
-        if self.status.name == "Resolved" && !self.actual_end_date_issue.present?
-          self.actual_end_date_issue = Time.zone.now
+        if self.status.id == 3 && !self.actual_end_date_issue.present?
+         self.actual_end_date_issue = Time.now
+          p self.actual_end_date_issue
           puts "-------------------------------------------------------------------"
           self.save
         end
       end
     end
-  end
+end
