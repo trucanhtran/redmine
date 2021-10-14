@@ -9,5 +9,6 @@ class PollsControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_template 'index'
+
   end
 end

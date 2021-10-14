@@ -2,14 +2,14 @@
 # Examples for PostgreSQL, SQLite3 and SQL Server can be found at the end.
 # Line indentation must be 2 spaces (no tabs).
 
-# development:
-#   adapter: mysql2
-#   database: redmine_development
-#   host: database_redmine
-#   username: root
-#   password: "root"
-#   # Use "utf8" instead of "utfmb4" for MySQL prior to 5.7.7
-#   encoding: utf8mb4
+development:
+  adapter: mysql2
+  database: redmine_development
+  host: db
+  username: root
+  password: root
+  # Use "utf8" instead of "utfmb4" for MySQL prior to 5.7.7
+  encoding: utf8mb4
 
 # # Warning: The database defined as "test" will be erased and
 # # re-generated from your development database when you run "rake".
@@ -24,12 +24,12 @@
 #   encoding: utf8mb4
 
 # PostgreSQL configuration example
-development:
- adapter: postgresql
- database: redmine
- host: db
- username: postgres
- password:
+# development:
+#  adapter: postgresql
+#  database: redmine
+#  host: db
+#  username: postgres
+#  password:
 
 # SQLite3 configuration example
 #production:

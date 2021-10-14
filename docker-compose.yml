@@ -38,3 +38,4 @@ volumes:
     name: redmine_bundle
   mysql:
     driver: local
+
