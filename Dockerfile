@@ -6,9 +6,9 @@ WORKDIR /myapp
 
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler -v '2.2.3'
+# RUN gem install bundler --source http://rubygems.org
 
-RUN bundle install -j4
+# RUN bundle install -j4
 COPY . /myapp
 
 # Add a script to be executed every time the container starts.
