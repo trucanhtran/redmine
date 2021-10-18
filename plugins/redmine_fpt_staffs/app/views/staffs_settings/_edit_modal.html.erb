@@ -1,0 +1,33 @@
+<h3 class="title"><%=l(:notice_edit_staff, :name => @staffs_settings.user.name.capitalize, :center => find_name_option_by_id(@staffs_settings.center_id))%></h3>
+<%= form_for @staffs_settings, :url => staffs_setting_path(@staffs_settings), :html => {:multipart => true} do |f| %>
+<% department_ids = @staffs_settings[:department_id] ? @staffs_settings[:department_id] : nil %>
+<%= hidden_field(:staffs_settings, :user_id, :value => @staffs_settings.user.id) %>
+<%= error_messages_for 'staffs_settings' %>
+<div id="staffs_settings_form">
+	<fieldset class="box">
+		<table class="list manager_staffs">
+		  <thead>
+		    <tr>
+		      <th>#</th>
+		      <th><%= toggle_checkboxes_link("input.view") %> View</th>
+		      <th><%= toggle_checkboxes_link("input.create") %> Create</th>
+		      <th><%= toggle_checkboxes_link("input.edit") %> Edit</th>
+		      <th><%= toggle_checkboxes_link("input.active_kpi") %> Active KPI</th>
+		      <th><%= toggle_checkboxes_link("input.active_bug") %> Active Bug</th>
+		    </tr>
+		  </thead>
+		  <tbody id="department_for_change_center">
+			 <%= render_department_for_change_center(@staffs_settings, @staffs_settings.center_id) %>
+		  </tbody>
+		</table>
+	</fieldset>
+	<!-- ---------------------------------------------------------------------------------------------------------------- -->
+  
+</div>
+
+
+ <p class="buttons">
+    <%= submit_tag l(:button_save) %>
+    <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+  </p>
+<% end %>

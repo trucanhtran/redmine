@@ -1,0 +1,119 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag('application.css', :plugin => "redmine_fpt_staffs", :media => "all") %>
+    <%= javascript_include_tag 'application.js',:plugin => 'redmine_fpt_staffs' %>
+    <%= stylesheet_link_tag('toastr.css', :plugin => "redmine_fpt_staffs", :media => "all") %>
+    <%= javascript_include_tag 'toastr.js',:plugin => 'redmine_fpt_staffs' %>
+<% end %>
+<div class="contextual">
+  <%= link_to l(:label_staff_new), new_staff_path, :class => 'icon icon-add' if check_permission(:create) %>
+</div>
+
+<h2><%= @query.new_record? ? l(:label_staffs) : @query.name %></h2>
+<% html_title(@query.new_record? ? l(:label_staffs) : @query.name) %>
+
+<%= form_tag("/staffs", :method => :get, :id => 'query_form') do %>
+  <%= render :partial => 'staffs/query_form' %>
+<% end %>
+
+<% if @query.valid? %>
+  <% if @staffs.size == 0 || @staff_count == 0%>
+    <p class="nodata"><%= l(:label_no_data) %></p>
+    <% else %>
+    <%= render_query_totals(@query) %>
+    <%= render :partial => 'staffs/list', :locals => {:staffs => @staffs, :query => @query} %>
+    <span class="pagination"><%= pagination_links_full @staff_pages, @staff_count %></span>
+
+    <% other_formats_links do |f| %>
+    <%= f.link_to_with_query_parameters 'PDF' %>
+    <%= f.link_to_with_query_parameters 'XLS' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= context_menu %>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    
+    $('#add_filter_select').change(function (){
+      load_birthday()
+    })
+    var load_birthday = function(){
+      $('#values_birthday').remove();  
+      $('#values_birthday_1').addClass("date-picker");
+      $('#values_birthday_1').prop('type', 'text');
+      $('#values_birthday_1').datepicker( {
+              changeMonth: true,
+              showButtonPanel: true,
+              dateFormat: 'mm-dd',
+              
+              monthNames: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+              monthNamesShort: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+              beforeShow: function(input) {
+                $(input).datepicker("widget").addClass('hide-calendar');
+              },
+              onClose: function(dateText, inst) {
+                $(this).datepicker('setDate', new Date(2000, inst.selectedMonth, inst.selectedDay));
+              }
+      });
+      $("#values_birthday_1").attr('readonly','readonly');
+      $("#values_birthday_2").attr('readonly','readonly');
+
+      $('#values_birthday_2').prop('type', 'text');
+      $('#values_birthday_2').addClass("date-picker");
+      $('#values_birthday_2').datepicker( {
+              changeMonth: true,
+              showButtonPanel: true,
+              dateFormat: 'mm-dd',
+              monthNames: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+              monthNamesShort: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+              beforeShow: function(input) {
+                $(input).datepicker("widget").addClass('hide-calendar');
+              },
+              onClose: function(dateText, inst) {
+                  $(this).datepicker('setDate', new Date(2000, inst.selectedMonth, inst.selectedDay));
+              }
+      });
+      $('#operators_birthday option').each(function() {
+          if ($.inArray($(this).val(), [">t-","<t-","><t-","t","ld","w","lw","l2w","m","lm","y","!*","*","t-"])  != -1 ) {
+              $(this).remove();
+          }
+      });
+      // load default format
+      var date_input1 = document.getElementById('values_birthday_1');
+      var date_input2 = document.getElementById('values_birthday_2');
+      if (date_input1 != null){
+        date_input1.value = changeDate(date_input1.value);
+      }
+      if (date_input2 != null){
+        date_input2.value = changeDate(date_input2.value);
+      }
+      function changeDate(date) {
+          var x = ""
+          if (date) {
+            x = new Date(date);
+          }
+          else{
+            x = new Date;
+          }
+          var y = x.getFullYear().toString();
+          var m = (x.getMonth() + 1).toString();
+          var d = x.getDate().toString();
+          (d.length == 1) && (d = '0' + d);
+          (m.length == 1) && (m = '0' + m);
+          var yyyymmdd = m + "-" + d;
+          return yyyymmdd;
+      }
+
+
+      function formatmonthoperator(){
+        var listoption =  ["><"];
+        var arrayLength = listoption.length;
+        for (var i = 0; i < arrayLength; i++) {
+          $("#operators_birthday option[value='" + listoption[i] + "']").remove();
+        }
+      }
+    }
+    load_birthday();
+  });
+</script>

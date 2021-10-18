@@ -1,0 +1,11 @@
+$('#tab-content-manager').html('<%= escape_javascript(render :partial => 'staffs_settings/manager') %>');
+hideOnLoad();
+$('#flash_notice').hide();
+<% if @staffs_settings.present? && @errors == ''  %>
+  hideModal();
+  <% @staffs_settings.each do |manager| %>
+    $("#manager-<%= manager.id %>").effect("highlight");
+  <% end %>
+<% elsif @errors %>
+  alert('<%= @errors %>');
+<% end %>

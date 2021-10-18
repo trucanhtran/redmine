@@ -1,0 +1,73 @@
+<h3 class="title"><%= l(:label_permissions_new) %></h3>
+
+<%= form_for @staffs_settings, :as => :staffs_settings, :url => staffs_settings_path(), :remote => true, :method => :post do |f| %>
+
+<%= error_messages_for 'staffs_settings' %>
+<div id="staffs_settings_form">  
+	<fieldset class="box">
+		<legend><%= label_tag("principal_search", l(:label_center)) %></legend>
+	  <p><%= select_tag 'staffs_settings[center_id]', options_for_select(staff_options_for_select('Center')) %></p>
+	  </div>
+	</fieldset>
+  <fieldset class="box">
+		<legend><%= label_tag("principal_search", l(:label_principal_search)) %></legend>
+	  <p><%= text_field_tag('principal_search', nil) %></p>
+	  <%= javascript_tag "observeSearchUserSettingStaffs('principal_search', null, '#{ escape_javascript autocomplete_staffs_settings_path(:format => 'js') }')" %>
+		<%= javascript_tag "loadDepartmentByCenter('staffs_settings_center_id','Department', null,'#{ escape_javascript autocomplete_staffs_settings_path(:format => 'js') }' )" %>
+	  <div id="principals_for_new_staffs_settings">
+	  	<%= render_principals_for_new_staffs_settings() %>
+	  </div>
+	</fieldset>
+	<fieldset class="box">
+		<legend><%= l(:label_permissions_departments) %></legend>
+		<table class="list manager_staffs">
+		  <thead>
+		    <tr>
+		      <th>#</th>
+		      <th><%= toggle_checkboxes_link("input.view") %> View</th>
+		      <th><%= toggle_checkboxes_link("input.create") %> Create</th>
+		      <th><%= toggle_checkboxes_link("input.edit") %> Edit</th>
+		      <th><%= toggle_checkboxes_link("input.active_kpi") %> Active KPI</th>
+		      <th><%= toggle_checkboxes_link("input.active_bug") %> Active Bug</th>
+		    </tr>
+		  </thead>
+		  <tbody id="department_for_change_center">
+			 <%= render_department_for_change_center(nil, staff_options_for_select('Center').first) %>
+		  </tbody>
+		</table>
+	</fieldset>
+	<div style="display: none;">
+		<fieldset class="box">
+		  <legend><%= toggle_checkboxes_link('.rules-selection input') %><%= l(:label_rules_plural) %></legend>
+		  <div class="rules-selection">
+		    <label><%= check_box_tag 'staffs_setting[view][]', 1 , false, :id => nil %> <%= l(:label_staff_view) %> </label>
+		    <label><%= check_box_tag 'staffs_setting[create][]', 1 , false, :id => nil %> <%= l(:label_staff_create) %> </label>
+		    <label><%= check_box_tag 'staffs_setting[edit][]', 1 , false, :id => nil %> <%= l(:label_staff_edit) %> </label>
+		    <label><%= check_box_tag 'staffs_setting[active_kpi][]', 1 , false, :id => nil %> <%= l(:label_active_kpi) %> </label>
+		    <label><%= check_box_tag 'staffs_setting[active_bug][]', 1 , false, :id => nil %> <%= l(:label_active_bug) %> </label>
+		    <%= hidden_field_tag 'staffs_setting[view][]' %>
+		    <%= hidden_field_tag 'staffs_setting[create][]' %>
+		    <%= hidden_field_tag 'staffs_setting[edit][]' %>
+		    <%= hidden_field_tag 'staffs_setting[active_kpi][]' %>
+		    <%= hidden_field_tag 'staffs_setting[active_bug][]' %>
+		    
+		    
+		  </div>
+		</fieldset>
+		<fieldset class="box">
+		  <legend><%= l(:label_department_plural) %></legend>
+		  <div class="department-selection">
+				<%= javascript_tag "loadDepartmentByCenter('staffs_settings_center_id','Department', null,'#{ escape_javascript change_center_staffs_settings_path(:format => 'js') }' )" %>
+				<div id="department_for_change_center">
+		  		<%= render_department_for_change_center(nil, @staffs_settings.center_id) %>
+		  	</div>
+		  </div>
+		</fieldset>
+	</div>
+</div>
+  <p class="buttons">
+    <%= submit_tag l(:button_add), :id => 'staffs_settings-add-submit' %>
+    <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+  </p>
+<% end %>
+

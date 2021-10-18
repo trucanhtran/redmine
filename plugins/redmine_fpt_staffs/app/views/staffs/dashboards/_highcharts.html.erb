@@ -1,0 +1,77 @@
+<% content_for :header_tags do %>
+    <%= javascript_include_tag("/highcharts/highstock.js") %>
+    <%= javascript_include_tag("/highcharts/modules/xrange.js") %>
+    <%= javascript_include_tag("/highcharts/modules/exporting.js") %>
+    <%= javascript_include_tag("/highcharts/modules/accessibility.js") %>
+    <%= javascript_include_tag("/highcharts/modules/export-data.js") %>
+    <%= javascript_include_tag "employee_in.js", :plugin => 'redmine_fpt_staffs' %>
+    <%= javascript_include_tag "employee_out.js", :plugin => 'redmine_fpt_staffs' %>
+    <%= javascript_include_tag "employee.js", :plugin => 'redmine_fpt_staffs' %>
+    <%= javascript_include_tag "reason_off.js", :plugin => 'redmine_fpt_staffs' %>
+    <%= javascript_include_tag "employee_half.js", :plugin => 'redmine_fpt_staffs' %>
+    <%= javascript_include_tag "reason_off_year.js", :plugin => 'redmine_fpt_staffs' %>
+<% end %>
+
+<figure  class="dashboard">
+    <div id="list-top" class="block-receiver">
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_employee"></div>
+        </div>
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_employee_half"></div>
+        </div>
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_employee_out"></div>
+        </div>
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_employee_in"></div>
+        </div>
+    </div>
+    <div id="list-left" class="block-receiver">
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_reason_off_year"></div>
+        </div>
+    </div>
+    <div id="list-right" class="block-receiver">
+        <div class="highchart">
+            <span class="sort-handle" title="Move"></span>
+            <div id="dashboard_reason_off"></div>
+        </div>
+    </div>
+</figure>
+
+<style>
+    #dashboard_employee, #dashboard_reason_off, #dashboard_employee_in, #dashboard_employee_out, #dashboard_employee_half, #dashboard_reason_off_year {
+  height: 400px;
+}
+    .highchart {
+        border: 1px solid #ddd;
+        margin: 0 0 20px 0;
+    }
+
+</style>
+
+<%= javascript_tag do %>
+    data_employee = <%= raw_json dashboard_employee_overall(time) %>;
+    data_employee_in = <%= raw_json dashboard_employee_info(time, "start_date_company", "#7cb5ec")[0] %>;
+    data_employee_out = <%= raw_json dashboard_employee_info(time, "start_date_off", '#FFA500')[0] %>;
+    data_employee_off = <%= raw_json dashboard_employee_info(time, "start_date_off", 'reason_off') %>;
+    data_employee_half = <%= raw_json dashboard_employee_year(time) %>;
+    data_reason_off_year = <%= raw_json dashboard_reason_off_year(time) %>;
+    month_title = data_employee_off[1];
+    if (month_title == null) {
+        month_title = "";
+    }
+    data_employee_off = data_employee_off[0];
+<% end %>
+
+<%= javascript_tag do %>
+    $(document).ready(function(){
+
+    });
+<% end %>

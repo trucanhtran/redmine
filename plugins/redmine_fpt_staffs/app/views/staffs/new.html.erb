@@ -1,0 +1,19 @@
+<%= title [l(:label_staffs), staffs_path], params[:copy_from].present? ? l(:label_staff_copy) : l(:label_staff_new)  %>
+<%= labelled_form_for @staff, :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f, :staff => @staff, :from => "new" } %>
+  <p class="buttons">
+    <%= submit_tag l(:button_create) %>
+    <!-- <%= submit_tag l(:button_create_and_continue), :name => 'continue' %> -->
+  </p>
+<% end %>
+
+<% if @auth_sources.present? && @auth_sources.any?(&:searchable?) %>
+  <%= javascript_tag do %>
+    observeAutocompleteField('staff_search', '<%= escape_javascript autocomplete_for_new_user_auth_sources_path %>', {
+      select: function(event, ui) {
+        $('input#staff_full_name').val(ui.item.lastname + ' ' + ui.item.firstname);
+        $('input#staff_mail').val(ui.item.mail);
+      }
+    });
+  <% end %>
+<% end %>

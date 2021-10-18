@@ -1,0 +1,49 @@
+<% query_options = nil unless defined?(query_options) %>
+<% query_options ||= {} %>
+<p><%= link_to l(:label_member_new), new_staffs_setting_path(), :remote => true, :class => "icon icon-add" %></p>
+
+<%= form_tag(staffs_settings_path, :method => :get) do %>
+<label for='name'><%= l(:label_user) %>:</label>
+<%= text_field_tag 'name', params[:name], :size => 30 %>
+<%= submit_tag l(:button_apply), :class => "small", :name => nil %>
+<%= link_to l(:button_clear), staffs_settings_path, :class => 'icon icon-reload' %>
+</fieldset>
+<% end %>
+&nbsp;
+
+<% if @staffs_settings.any? %>
+
+<table class="list manager_staffs">
+	<thead>
+		<tr>
+			<% @query.inline_columns.each do |column| %>
+				<%= content_tag('th', column.caption) %>
+			<% end %>
+			<th>#</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @staffs_settings.each do |manager| %>
+	<tr id="manager-<%= manager.id %>" class="manager_staffs">
+		<% @query.inline_columns.each do |column| %>
+				<%= content_tag('td', staffs_column_content(column, manager), :class => column.css_classes) %>
+				<% end %>
+		<td>
+			<%= link_to l(:button_edit), edit_staffs_setting_path(manager),
+										:remote => true,
+										:title => l(:button_edit),
+										:class => 'icon-only icon-edit' %>
+			<%= link_to l(:button_delete), staffs_setting_path(manager),
+										:data => {:confirm => l(:text_are_you_sure)},
+										:method => :delete,
+										:title => l(:button_delete),
+										:class => 'icon-only icon-del' %>
+		</td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<span class="pagination"><%= pagination_links_full @staffs_settings_pages, @staffs_settings_count %></span>
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>

@@ -1,0 +1,6 @@
+<%= title [l(:label_staffs), staffs_path], l(:label_staff_edit) %>
+
+<%= labelled_form_for @staff, :url => staff_path(@staff), :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f, :staff => @staff, :from => "edit"} %>
+  <%= submit_tag l(:button_save) %>
+<% end %>

@@ -1,0 +1,294 @@
+<div style="zoom:0.85;">
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag('application.css', :plugin => "redmine_fpt_staffs", :media => "all") %>
+    <%= javascript_include_tag 'application.js',:plugin => 'redmine_fpt_staffs' %>
+
+    <%= stylesheet_link_tag('croppie.css', :plugin => "redmine_fpt_staffs") %>
+    <%= stylesheet_link_tag('staff_form.css', :plugin => "redmine_fpt_staffs") %>
+    <%= javascript_include_tag 'croppie.min.js',:plugin => 'redmine_fpt_staffs' %>
+<% end %>
+<%= error_messages_for 'staff' %>
+
+<div id="staff_form">
+<!--[form:staff]-->
+  <div style="clear:left;"></div>
+  <div class="splitcontentleft">
+    <fieldset class="box tabular">
+      <legend><%=l(:label_staff_information_plural)%></legend>
+
+      <% if staff.staff_avatar.nil? || staff.staff_avatar.empty?%>
+        <%= image_tag('no-avatar.jpg', :plugin => 'redmine_fpt_staffs', :id => "current-avatar", :class => "position-center photo margin-avatar") %>
+      <% else %>
+        <%= image_tag(staff.staff_avatar, :id => "current-avatar", :class => "position-center margin-avatar") %>
+      <% end %>
+      <div>
+        <input type="file" hidden id="file-avatar" onchange="readFile(this);" />
+        <input type="button" id="change-photo" class="position-center" value="Change photo">
+      </div>  
+      <%= f.hidden_field :staff_avatar %>
+
+      <p id="search"><%= label_tag 'search'%> <%= text_field_tag 'staff_search'%></p>
+      <p><%= f.select :type_staff, [["Staff Internal", 0], ["Staff external", 1]], :required => true %></p>
+      <p><%= f.text_field :employee_id %></p>
+      <p><%= f.text_field :full_name, :required => true %></p>
+      <p><%= f.text_field :mail %></p>
+      <p><%= f.text_field :another_email %></p>
+      <p><%= f.select :job_position_id, staff_options_for_select('Position'), :include_blank => true %></p>
+      <p><%= f.select :job_title_id, staff_options_for_select('Job Title'), :include_blank => true %></p>
+      <p><%= f.label :sex %> <%= f.radio_button :sex, true, :checked => true %>Nam</p>
+      <p><%= f.radio_button :sex, false %>Nữ</p>
+      <p><%= f.date_field :birthday %></p>
+      <p><%= f.text_field :place_birth %></p>
+      <p><%= f.text_field :phone %></p>
+      <p><%= f.select :degree_id, staff_options_for_select('Degree'), :include_blank => true %></p>
+      <p><%= f.text_area :certificate, :rows => 2 %></p>
+    </fieldset>
+    <fieldset class="box tabular">
+      <legend><%=l(:label_staff_contract_plural)%></legend>
+      <p><%= f.select :location_id, staff_options_for_select('Location') %></p>
+      <p style="display:inline-block; padding-left:180px"><%= f.select :contract_id, staff_options_for_select('Contract') %></p>
+      <p class="datetime" ><%= f.date_field :start_date_contract, :required => true, :onchange => "autoFill(this)" %></p>
+      <p class="datetime" ><%= f.date_field :due_date_contract %></p>
+      <p style="display:inline-block; padding-left:180px"><%= f.select :work_id, staff_options_for_select('Work'), {}, :onclick => "callCheckHide(this)"  %></p>
+      <div id="inline-status">
+        <p class="datetime" id="status-start-date"><%= f.date_field :start_date_off%></p>
+        <p class="datetime" id="status-end-date"><%= f.date_field :end_date_off%></p>
+      </div>
+      <p><%= f.date_field :start_date_company, :required => true%></p>
+    </fieldset>
+  </div>
+
+  <div style="clear:right;"></div>
+  <div class="splitcontentright">
+    <fieldset class="box tabular">
+      <legend><%=l(:label_staff_skill)%></legend>
+      <p><%= f.text_area :hardskill, :rows => 2 %></p>
+      <p><%= f.text_area :softskill, :rows => 2 %></p>
+      <p><%= f.text_area :achievement, :rows => 2 %></p>
+    </fieldset>
+    <fieldset class="box tabular">
+      <legend><%=l(:label_staff_kpi_plural)%></legend>
+      <p><%= f.select :center_id, options_for_center %></p>
+      <%= javascript_tag "getValCenterChange('#{ escape_javascript change_center_staffs_path(:format => 'js') }')" %>
+      <p id="render_staff_department_id"><%= render_option_department_by_center() %></p>
+      <p id="render_staff_team_leader_id"><%= render_option_team_leader_by_department() %></p>
+      <% if staff.job_code.blank? %>
+        <p><%= f.select :job_code_tmp, custom_fields_options_for_select(160) %></p>
+      <% end %>
+      <p><%= f.label :job_code %> <span style="color: red;" ><%= staff.job_code %></span></p>
+      <p><%= f.check_box :active_kpi %></p>
+      <p><%= f.check_box :active_bug %></p>
+      
+    </fieldset>
+    <fieldset class="box tabular">
+      <legend><%=l(:label_staff_identity_plural)%></legend>
+      <p><%= f.text_field :identity_card, :required => true %></p>
+      <p><%= f.date_field :identity_date %></p>
+      <p><%= f.text_field :identity_by, :value => " "%></p>
+      <p><%= f.text_field :ethnic %></p>
+      <p><%= f.text_area :permanent_address, :rows => 5 %></p>
+      <p><%= f.text_area :temporary_address, :rows => 2 %></p>
+      <p><%= f.text_area :contact, :rows => 2 %></p>
+      <p><%= f.text_area :note, :rows => 5 %></p>
+    </fieldset>
+  </div>
+
+</div>
+<div style="clear:left;"></div>
+<!--[eoform:staff]-->
+</div>
+
+<script type="text/javascript">
+  
+  var $uploadCrop;    
+  $(document).ready(function(){
+    if ($("#staff_type_staff").val() == 1) {
+      $("label[for='staff_start_date_contract']").find("span").hide();
+      $("label[for='staff_start_date_company']").find("span").hide();
+      $("label[for='staff_identity_card']").find("span").hide();
+    }
+
+    $('#staff_type_staff').change(function () {
+      if ($(this).val() == 1) {
+        $("label[for='staff_start_date_contract']").find("span").hide();
+        $("label[for='staff_start_date_company']").find("span").hide();
+        $("label[for='staff_identity_card']").find("span").hide();
+      }
+      else {
+        $("label[for='staff_start_date_contract']").find("span").show();
+        $("label[for='staff_start_date_company']").find("span").show();
+        $("label[for='staff_identity_card']").find("span").show();
+      }
+    });
+    var render = ""
+    render += '<div id="upload-avatar"></div>'
+    render += '<input type="button" id="upload-result" class="modal-button-center" value="Crop">'
+    $("#ajax-modal").html(render);
+
+    
+    
+    $uploadCrop = $('#upload-avatar').croppie({
+      enableExif: true,
+      mouseWheelZoom: 'ctrl',
+      viewport: {
+          type: 'circle',
+          width: 280,
+          height: 280
+        },
+      boundary: {
+          width: 300,
+          height: 300
+      }
+    })
+    $uploadCrop.croppie('bind', {
+        url: '/plugin_assets/redmine_fpt_staffs/images/no-avatar.jpg',
+          
+    });
+    $('#upload-result').on('click', function (ev) {
+      $uploadCrop.croppie('result', {
+        type: 'canvas',
+        size: 'viewport'
+      }).then(function (resp) {
+        window.hideModal();
+        $('#current-avatar').attr('src',resp )
+        $('#staff_staff_avatar').val(resp)
+      });
+    });
+  })
+  function change_department_by_center (){
+    url = '<%= change_department_staffs_path %>';
+    id  = <%= staff.id.nil? ? '-1':staff.id %>;
+    var $this = $(this);
+    var val = $('#staff_department_id').val();
+    
+    $.ajax({
+      url: url,
+      type: 'get',
+      data: {department_id: val, id: id},
+      success: function(data){},
+      beforeSend: function(){ $this.addClass('ajax-loading'); },
+      complete: function(){ $this.removeClass('ajax-loading'); }
+    });
+  }
+
+    
+  var checkValidImage = function(input){
+    var status = true
+    var _validFileExtensions = ["jpg", "jpeg", "bmp", "gif", "png"];
+    var fileName = input.files[0].name;
+        
+    var array = fileName.split('.')
+    var format = array[array.length - 1]
+    
+    if ($.inArray(format, _validFileExtensions) == -1){
+      alert("image invail")
+      $('#file-avatar').val('')
+      status = false;
+    }
+    // else if (input.files[0].size > 2000000){
+    //   alert("image to large")
+    //   $('#file-avatar').val('')
+    //   status = false;
+    // }
+    return status
+  }
+  function readFile(input) {
+    if (input.files && input.files[0] && checkValidImage(input)) {
+      var reader = new FileReader();
+      window.showModal("ajax-modal", '500px', "<%= l(:label_change_photo)%>")  
+      $('#upload-result').focus();
+      reader.onload = function (e) {
+        $('#upload-avatar').addClass('ready');
+        $uploadCrop.croppie('bind', {
+          url: e.target.result
+        }).then(function(){
+          console.log('Upload complete');
+        });
+                
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+    
+
+  $('#upload').on('change', function () { readFile(this); });
+
+  $('#change-photo').click(function(){
+    $('#file-avatar').click();
+  })
+
+
+</script>
+
+<%= javascript_tag do %>
+  $("#values_location_id_1").each(function(){
+  
+    $(this).val($(this).find("option[selected=selected]").val());
+  });
+  var check = <%= 
+  if (defined? from)
+    if (from == "new")
+      1
+    else 0
+    end
+  else 1
+  end %>;
+if (check == 0)
+  $('#search').hide();
+var str = document.getElementById("staff_work_id");
+callCheckHide(str);
+
+$(window).resize(function(){
+  reponsive();
+});
+
+var reponsive = function(){
+  var w = document.body.offsetWidth
+
+  if(w > 1800){
+    $('#inline-status').css('display', 'inline-block')
+    $('#status-start-date').css('display', 'inline-block')
+    $('#status-end-date').css('display', 'inline-block')
+  }
+  else{
+    $('#inline-status').css('display', 'block')
+    $('#status-start-date').css('display', 'block')
+    $('#status-end-date').css('display', 'block')
+  }
+  var str = document.getElementById("staff_work_id");
+  callCheckHide(str);
+}
+function callCheckHide(obj){
+  str = obj.options[obj.selectedIndex].innerHTML;
+
+  if (str.includes("Nghỉ tạm")){
+    $('#status-start-date').show();
+    $('#status-end-date').show();
+  }
+  else if (str.includes("Nghỉ việc")) {
+    $('#status-start-date').show();
+    $('#status-end-date').hide();
+  }
+  else {
+    $('#status-start-date').hide();
+    $('#status-end-date').hide();
+  }
+}
+
+function autoFill(obj) {
+  var contract = document.getElementById("staff_contract_id");
+  str = contract.options[contract.selectedIndex].innerHTML;
+  if(str == "HĐLĐ xác định thời hạn 12 tháng") {
+    var start_date = new Date(obj.value);
+    if (start_date.getMonth() + 1 == 2 && start_date.getDate() == 29){
+      start_date = start_date.setDate(start_date.getDate()-1);
+      start_date = new Date(start_date);
+    } 
+    start_date = start_date.setMonth(start_date.getMonth()+12);
+    d = new Date(start_date);
+    due_date = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString());
+    due_date_contract = document.getElementById("staff_due_date_contract");
+    due_date_contract.value = due_date;
+  }
+}
+<% end %>

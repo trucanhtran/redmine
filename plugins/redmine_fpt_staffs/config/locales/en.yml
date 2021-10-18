@@ -1,0 +1,115 @@
+# English strings go here for Rails i18n
+en:
+  permission_view_staffs: View Staffs
+  permission_new_staffs: New Staffs
+  permission_edit_staffs: Edit Staffs
+  permission_delete_staffs: Delete Staffs
+  
+  field_employee_id: MNV
+  field_employee: Mã nhân viên
+  field_full_name: Họ tên 
+  field_type_staff: Kiểu staff
+  field_another_email: Mail khác
+  field_hardskill: Hard skill
+  field_softskill: Soft skill
+  field_achievement: Certification
+  field_start_date_company:  Ngày vào cty
+  field_start_date_contract: Từ
+  field_due_date_contract: Đến
+  field_start_date_off: 'Từ'
+  field_end_date_off: 'Đến'
+  field_sex: Giới tính
+  field_birthday: Sinh Nhật
+  field_place_birth: Nơi Sinh
+  field_phone: Phone 
+  field_permanent_address: Thường trú
+  field_temporary_address: Tạm trú
+  field_identity_card: CMND
+  field_identity_date: Ngày cấp
+  field_identity_by: Nơi cấp
+  field_ethnic: Dân tộc
+  field_contact: Liên hệ
+  field_note: Ghi chú
+  field_active_kpi: Active KPI
+  field_active_bug: Active Bug
+  field_contract: Hợp đồng
+  field_location: Vùng miền
+  field_department: Phòng ban
+  field_center: Trung tâm
+  field_work: Trạng thái
+  field_job_code: Job code
+  field_job_code_tmp: Job tmp
+  field_user_id: User
+  field_view: View
+  field_edit: Edit
+  field_hardskil_id: Hard skill
+  field_softskill_id: Soft skill
+  field_achievement_id: Certification
+  field_location_id: Vùng miền
+  field_department_id: Phòng ban
+  field_contract_id: Hợp đồng
+  field_work_id: Trạng thái
+  field_phone_id: Phone
+  field_center_id: Trung tâm
+  field_job_position: Chức vụ
+  field_job_title: Chức danh
+  field_created_on: Created
+  field_updated_on: Updated
+  field_create: Created
+  field_degree: Trình độ
+  field_certificate: Bằng cấp 
+  field_job_position_id: Chức vụ
+  field_team_leader: Team Leader
+  label_staffs: Staffs
+  label_staff_view: View
+  label_staff_new: New staff
+  label_staff_edit: Edit
+  label_staff_create: Create
+  label_staff_copy: Copy
+  label_principal_search: Search for user
+  label_permissions_new: New permissions
+  label_active_kpi: Active KPI
+  label_active_bug: Active Bug
+  label_user: User
+  label_center: Center
+  label_department: Phòng ban
+  
+  label_team_leader: Team Leader
+  label_staff_information_plural: Thông tin cơ bản 
+  label_staff_contract_plural: Hợp đồng
+  label_staff_contact_plural: Liên hệ
+  label_staff_identity_plural: CMND
+  label_staff_kpi_plural: Thông tin KPI
+  label_staff_skill: Kỹ năng
+  label_image: Hình ảnh
+  label_department_plural: All Department
+  label_rules_plural: Rules
+  label_custom_values_tab: Custom values
+  label_manager_staffs_tab: Manager staffs
+  label_permissions_departments: Permissions
+  label_change_photo: Change photo
+  label_staff_dashboard_plural: Dashboard User
+
+  notice_staff_successful_create: Staff %{id} created.
+  notice_unable_delete_staff: Unable to delete staff.
+  notice_edit_staff: Edit "%{name}" - %{center}
+  notice_failed_to_save_staffs_settings: "Failed to save %{name} : %{errors}."
+  notice_failed_to_create_staff: "Unable to create an account. Contact administrator"
+  notice_failed_to_update_staff: "Unable to update an account. Contact administrator"
+
+  error_can_not_permission_active_kpi: "Không có quyền Active KPI nhân viên phòng %{department}."
+  error_can_not_permission_active_bug : "Không có quyền Active Bug nhân viên phòng %{department}."
+  error_can_not_permission_create: "Không có quyền tạo nhân viên phòng %{department}."
+  error_can_not_permission_edit: "Không có quyền chỉnh sửa nhân viên phòng %{department}."
+  error_must_be_number: "%{option} phải là số."
+  error_dateoff: "%{option} chưa nhập."
+  error_startdateoff_not_smaller_than_enddateoff: "Ngày bắt đầu nghỉ không được lớn hơn ngày kết thúc nghỉ."
+  error_startdatecontract_not_smaller_than_enddatecontract: "Ngày bắt đầu hợp đồng không được lớn hơn ngày kết thúc hợp đồng."
+  error_date_contract_not_enough: "Thời gian hợp đồng không hợp lệ."
+  error_starttime_must_smaller_than_endtime: Start time must be smaller than end time.
+  error_startyear_must_smaller_than_endyear: Start year must be smaller than end year.
+
+  general_text_yes: "YES"
+  general_text_no: "NO"
+  general_text_boy: "NAM"
+  general_text_girl: "NỮ" 

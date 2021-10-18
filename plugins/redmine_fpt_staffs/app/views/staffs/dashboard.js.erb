@@ -1,0 +1,18 @@
+data_employee = <%= raw_json dashboard_employee_overall(@time) %>;
+data_employee_in = <%= raw_json dashboard_employee_info(@time, "start_date_company", "#7cb5ec")[0] %>
+data_employee_out = <%= raw_json dashboard_employee_info(@time, "start_date_off", '#FFA500')[0] %>
+data_employee_off = <%= raw_json dashboard_employee_info(@time, "start_date_off", 'reason_off') %>
+data_employee_half = <%= raw_json dashboard_employee_year(@time) %>
+data_reason_off_year = <%= raw_json dashboard_reason_off_year(@time) %>
+month_title = data_employee_off[1];
+if (month_title == null) {
+        month_title = "";
+}
+data_employee_off = data_employee_off[0];
+
+chart_employee(data_employee);
+chart_employee_half(data_employee_half);
+chart_employee_in(data_employee_in, month_title);
+chart_employee_out(data_employee_out, month_title);
+chart_reason_off(data_employee_off, month_title);
+chart_reason_off_year(data_reason_off_year);

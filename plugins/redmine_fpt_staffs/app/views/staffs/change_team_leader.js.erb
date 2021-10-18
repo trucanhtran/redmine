@@ -1,0 +1,8 @@
+<% if @check %>
+	toastr.success('Success', {timeOut: 1000})
+<% else 
+	Array.wrap(@staff).map {|object| object.errors.full_messages}.flatten.each do |error| %>
+		toastr.error('<%= error %>', {timeOut: 1000})
+	<% end %>
+$('#staff_'+'<%= params[:id] %>').val('');
+<% end %>

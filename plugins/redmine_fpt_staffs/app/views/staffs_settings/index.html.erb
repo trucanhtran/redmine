@@ -1,0 +1,13 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag('application.css',  :plugin => "redmine_fpt_staffs", :media => "all") %>
+    <%= javascript_include_tag 'application.js',:plugin => 'redmine_fpt_staffs' %>
+<% end %>
+
+<h2><%=l(:label_settings)%></h2>
+
+<%= render_tabs staffs_settings_tabs   %>
+
+<% html_title(l(:label_settings)) -%>
+
+
+

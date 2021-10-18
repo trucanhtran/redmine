@@ -1,0 +1,86 @@
+<% query_options = nil unless defined?(query_options) %>
+<% query_options ||= {} %>
+
+<%= form_tag({}, :data => {:cm_url => edit_staff_path(staffs)}) do -%>
+<div id="table-scroll" class="table-scroll">
+<div class="table-wrap">
+<table class="list issue odd-even">
+  <thead>
+
+    <tr>
+      <th style="width: 15px;">#</th>
+      <% query.inline_columns.each do |column| %>
+        <%= column_header(query, column, query_options) %>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% staffs.each do |staff| -%>
+
+    <tr id="staff-<%= staff.id %>" class="list issue odd-even">
+      <td class="buttons">
+        
+        <%= link_to l(:button_edit), edit_staff_path(staff),
+                    :title => l(:button_edit),
+                    :class => 'icon-only icon-edit' if check_permission(:edit, staff.department_id) %>
+
+        <%= link_to l(:button_copy), copy_staff_path(staff),
+                    :title => l(:button_copy),
+                    :class => 'icon-only icon-copy' if check_permission(:create, staff.department_id) %>
+        <%= link_to l(:button_delete), staff_path(staff),
+                    :data => {:confirm => l(:text_are_you_sure)},
+                    :method => :delete,
+                    :title => l(:button_delete),
+                    :class => 'icon-only icon-del' if User.current.name == 'admin' %>
+       
+      </td>
+      <% query.inline_columns.each do |column| %>
+        <%= content_tag('td', check_active_tag(column.caption,staffs_column_content(column, staff)) == false ? staffs_column_content(column, staff) : check_active_tag(column.caption,staffs_column_content(column, staff)), :class => column.css_classes) %>
+        <% end %>
+    </tr>
+    <% query.block_columns.each do |column|
+         if (text = staffs_column_content(column, staff)) && text.present? -%>
+    <tr class="<%= current_cycle %>">
+      <td colspan="<%= query.inline_columns.size + 1 %>" class="<%= column.css_classes %>">
+        <% if query.block_columns.count > 1 %>
+          <span><%= column.caption %></span>
+        <% end %>
+        <%= text %>
+      </td>
+    </tr>
+    <% end -%>
+    <% end -%>
+    <% end -%>
+  </tbody>
+</table>
+</div>
+</div>
+<% end -%>
+
+<%= javascript_tag do %>
+  col1 = document.querySelector('div .table-wrap td.buttons').offsetWidth;
+  col1 = col1.toString() + "px";
+  $('#table-scroll table thead tr th:nth-child(1)').addClass("fixed-side");
+  $('#table-scroll table tbody tr td:nth-child(1)').addClass("fixed-side");
+  $('#table-scroll table thead tr th:nth-child(2)').addClass("fixed-side").css("left", col1);
+  $('#table-scroll table tbody tr td:nth-child(2)').addClass("fixed-side").css("left", col1);
+<% end %>
+
+<script>
+  function change_team_leader(user) {
+    // console.log('user: ' + user);
+    // console.log('team leader:' + $('#staff_'+user).val());
+    url = '/staffs/change_team_leader.js';
+    var $this = $(this);
+    var val = $('#staff_department_id').val();
+    
+    $.ajax({
+      url: url,
+      type: 'post',
+      data: {team_leader: $('#staff_'+user).val(), id: user},
+      success: function(data){},
+      beforeSend: function(){ $this.addClass('ajax-loading'); },
+      complete: function(){ $this.removeClass('ajax-loading'); }
+    });
+  }
+</script>

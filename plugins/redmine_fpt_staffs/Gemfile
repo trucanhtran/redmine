@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+group :export_attachments do
+  gem 'rubyzip'
+  gem 'axlsx'
+  gem 'axlsx_rails'
+  gem 'chartkick'
+  gem 'rest-client'
+  gem 'activerecord-import'
+  gem 'caxlsx_rails'
+end
