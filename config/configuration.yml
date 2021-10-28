@@ -12,7 +12,7 @@ default:
   # Outgoing emails configuration
   # See the examples below and the Rails guide for more configuration options:
   # http://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration
-  email_delivery:
+  # email_delivery:
 
   # ==== Simple SMTP server at localhost
   #
@@ -50,17 +50,17 @@ default:
   # This might require some additional configuration. See the guides at:
   # http://www.redmine.org/projects/redmine/wiki/EmailConfiguration
   #
-  #  email_delivery:
-  #    delivery_method: :smtp
-  #    smtp_settings:
-  #      enable_starttls_auto: true
-  #      address: "smtp.gmail.com"
-  #      port: 587
-  #      domain: "smtp.gmail.com" # 'your.domain.com' for GoogleApps
-  #      authentication: :plain
-  #      user_name: "your_email@gmail.com"
-  #      password: "your_password"
-  #
+  email_delivery:
+    delivery_method: :smtp
+    smtp_settings:
+      enable_starttls_auto: true
+      address: "smtp.gmail.com"
+      port: 587
+      # domain: "smtp.gmail.com" # 'your.domain.com' for GoogleApps
+      authentication: :plain
+      user_name: "trucanh88879@gmail.com"
+      password: "nqqkajehnxeteaxf"
+  
   # ==== Sendmail command
   #
   #  email_delivery:
