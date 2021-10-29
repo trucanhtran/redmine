@@ -18,7 +18,6 @@ end
 
 Rails.configuration.to_prepare do
   UsersController.send(:prepend, UsersControllerPatch)
-  ApplicationController.send(:helper, :staffs)
 end
 
 

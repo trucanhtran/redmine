@@ -103,3 +103,4 @@ Dir.glob File.expand_path("../plugins/*/{Gemfile,PluginGemfile}", __FILE__) do |
 end
 
 gem 'dav4rack'
+gem 'byebug'

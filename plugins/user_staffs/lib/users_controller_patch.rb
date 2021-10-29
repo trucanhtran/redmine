@@ -11,25 +11,38 @@ module UsersControllerPatch
 
   def create
     super
-    @provinces = Province.all
-    @user.create(user_params)
+    byebug
+    @user.update(user_params)
+    p @user
   end
 
   def edit
     super
     @provinces = Province.all
+    @departments = Department.all
+    @centers = Center.all
+    p @provinces
+    p @user.province_id
+    p "=========================================="
     
   end
 
   def update
     super
+    p @user.province_id
+    p "=========================================="
+
     @user.update(user_params)
   end
 
   private
   def user_params
-    params.require(:user).permit(:another_email, :phone, :birthday, :sex, :province_id, :active_kpi,
-      :active_bug, :adress, :location, :department, :type, :position, :team)
+    params.require(:user).permit(
+      :login, :firstname, :lastname, :mail,
+      :language, :admin, :password, :password_confirmation, :generate_password, :must_change_passwd, :mail_notification, :notified_project_ids, 
+      :another_email, :phone,:province_id, :birthday, :sex, :active_kpi,
+      :active_bug, :department_id
+    )
   end
 
 

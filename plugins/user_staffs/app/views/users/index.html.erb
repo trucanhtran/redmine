@@ -36,16 +36,12 @@
   <th><%= l(:field_active_kpi) %></th>
   <th><%= l(:field_active_bug) %></th>
   <th><%= l(:field_region) %></th>
+  <th><%= l(:field_center) %></th>
+  <th><%= l(:field_department) %></th>
   <th><%= l(:field_phone) %></th>
   <th><%= l(:field_birthday) %></th>
   <th><%= l(:field_sex) %></th>
-  <th><%= l(:field_address) %></th>
-  <th><%= l(:field_location) %></th>
-  <th><%= l(:field_department) %></th>
-  <th><%= l(:field_type_staffs) %></th>
-  <th><%= l(:field_position) %></th>
-  <th><%= l(:field_team_leader) %></th>
-  
+
   <%= sort_header_tag('admin', :caption => l(:field_admin), :default_order => 'desc') %>
   <%= sort_header_tag('created_on', :caption => l(:field_created_on), :default_order => 'desc') %>
   <%= sort_header_tag('last_login_on', :caption => l(:field_last_login_on), :default_order => 'desc') %>
@@ -61,21 +57,17 @@
       <%= delete_link user_path(user, :back_url => request.original_fullpath) unless User.current == user %>
     </td>
   <td class="username"><%= avatar(user, :size => "14") %><%= link_to user.login, edit_user_path(user) %></td>
-  <td class="name"><%= get_name %></td>
+  <td class="name"><%= user.firstname << " " << user.lastname%></td>
   <td class="email"><%= mail_to(user.mail)  %></td>
   <td class="another_email"><%= mail_to(user.another_email)%></td>
   <td class="active_kpi tick"><%= checked_image user.active_kpi? %></td>
   <td class="active_bug tick"><%= checked_image user.active_bug?  %></td>
-  <td class="region"><%= user&.province&.name %></td>
+  <td class="province"><%= user&.province&.name %></td>
+  <td class="center"><%= l(:field_center) %></td>
+  <td class="department"><%= l(:field_department) %></td>
   <td class="phone"><%= user.phone %></td>
   <td class="birthday"><%=user.birthday.present? ? user.birthday.strftime("%m/%d/%Y") : " " %></td>
-  <td class="sex"><%= user.sex ? "Male" : "Female"%></td>
-  <td class="adress">HCM</td></td>
-  <td class="location">ISC</td>
-  <td class="department"><%= l(:field_department) %></td>
-  <td class="type_staffs"><%= l(:field_type_staffs) %></td>
-  <td class="position"><%= l(:field_position) %></td>
-  <td  class="team_leader"><%= l(:field_team_leader) %></td>
+  <td class="sex"><%= user.sex ? "Nam" : "Nữ"%></td>
   <td class="tick"><%= checked_image user.admin? %></td>
   <td class="created_on"><%= format_time(user.created_on) %></td>
   <td class="last_login_on"><%= format_time(user.last_login_on) unless user.last_login_on.nil? %></td>
