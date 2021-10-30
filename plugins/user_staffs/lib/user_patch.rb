@@ -7,18 +7,17 @@ module UserPatch
       belongs_to :department
       belongs_to :center
       belongs_to :job_position
-      # validate :validates_user_phone
+      validate :validates_user_phone, on: [:create, :update]
     end
-
-    # def validates_user_phone
-    #   unless phone.present? && (phone > 10 && phone < 15)
-    #     errors.add(:errors)
-    #   end
-    # end
-
-
   end
 
   module InstanceMethods
+    def validates_user_phone
+      p "-------------------------------------------------------------"
+      if phone.present? && (phone.to_s.size < 10 || phone.to_s.size > 15)
+        p phone
+        errors.add(:phone, "Can't save")
+      end
+    end
   end
 end

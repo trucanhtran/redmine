@@ -2,12 +2,11 @@ require_dependency 'users_controller'
 
 module UsersControllerPatch
 
+  
+
   def new
+    init_data
     super
-    @provinces = Province.where(code: ["1", "79"])
-    @departments = Department.all
-    @centers = Center.all
-    @job_positions = JobPosition.all
   end
 
   def create
@@ -16,19 +15,15 @@ module UsersControllerPatch
   end
 
   def edit
+    init_data
     super
-    @provinces = Province.where(code: ["1", "79"])
-    @departments = Department.all
-    @centers = Center.all
-    @job_positions = JobPosition.all
-    p "=========================================="
     
   end
 
   def update
+    init_data
     super
     p user_params
-    p "=========================================="
 
     @user.update(user_params)
   end
@@ -41,6 +36,13 @@ module UsersControllerPatch
       :another_email, :phone, :location_id, :birthday, :sex, :active_kpi,
       :active_bug, :department_id, :center_id, :job_position_id
     )
+  end
+
+  def init_data
+    @provinces = Province.where(code: ["1", "79"])
+    @departments = Department.all
+    @centers = Center.all
+    @job_positions = JobPosition.all
   end
 
 end
