@@ -7,14 +7,17 @@ namespace :province do
     data = resp.body
     result = JSON.parse(data)
     result.each do |province|
-        Province.create(
+        Province.find_or_create_by(
             name: province["name"],
             code: province["code"],
             code_name: province["codename"],
             phone_code: province["phone_code"],
           )
         puts "#{province["name"]}"
-    end
+        province["districts"].each do |district|
+          p district.["name"]
+        end
     end
   end
+end
 

@@ -7,6 +7,11 @@ namespace :center do
       Center.create(name: center)
       p "Create #{center}"
     end
+    locations = Province.where(code: ["1", "79"])
+    locations.each do |location|
+      p location
+      Location.create(province_id: location.id)
+    end
   end
 end
 
