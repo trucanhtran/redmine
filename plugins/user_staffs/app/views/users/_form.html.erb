@@ -16,26 +16,30 @@
   <p><%= f.check_box :active_kpi %></p>
   <p><%= f.check_box :active_bug %></p>
   <p>
-    <%= f.label :province_id, "Vùng miền"%>
-    <%= f.collection_select :province_id, @provinces, :id, :name %>
+    <%= f.label :location_id, "Vùng miền"%>
+    <%= f.collection_select :location_id, @provinces, :id, :name %>
   </p>
   <p>
     <%= f.label :center, "Trung tâm"%>
-    <%= f.collection_select :center, @centers, :id, :name %>
+    <%= f.collection_select :center_id, @centers, :id, :name %>
   </p>
   <p>
     <%= f.label :department, "Phòng ban"%>
-    <%= f.collection_select :department, @departments, :id, :name %>
+    <%= f.collection_select :department_id, @departments, :id, :name %>
   </p>
   <p><%= f.phone_field :phone%></p>
   <p><%= f.date_field :birthday, :required => true %></p>
   <p>
-    <%= f.label :sex, "Nam"%>
+    <%= f.label :job_position, "Chức vụ"%>
+    <%= f.collection_select :job_position_id, @job_positions, :id, :name %>
+  </p>
+  <p>
     <%= f.radio_button :sex, "true", checked: true, :required => true, :size => 25%>
+    <%= f.label :sex, "Nam"%>
   </p>
   <p>      
-    <%= f.label :sex, "Nữ"%>
     <%= f.radio_button :sex, "false", :required => true,:size => 25%>
+    <%= f.label :sex, "Nữ"%>
   </p>
   <% unless @user.force_default_language? %>
   <p><%= f.select :language, lang_options_for_select %></p>

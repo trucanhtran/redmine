@@ -35,9 +35,12 @@
   <th><%= l(:field_another_email) %></th>
   <th><%= l(:field_active_kpi) %></th>
   <th><%= l(:field_active_bug) %></th>
-  <th><%= l(:field_region) %></th>
+  <th><%= l(:field_location) %></th>
   <th><%= l(:field_center) %></th>
   <th><%= l(:field_department) %></th>
+  
+  <th><%= "Vi Tris" %></th>
+
   <th><%= l(:field_phone) %></th>
   <th><%= l(:field_birthday) %></th>
   <th><%= l(:field_sex) %></th>
@@ -62,9 +65,10 @@
   <td class="another_email"><%= mail_to(user.another_email)%></td>
   <td class="active_kpi tick"><%= checked_image user.active_kpi? %></td>
   <td class="active_bug tick"><%= checked_image user.active_bug?  %></td>
-  <td class="province"><%= user&.province&.name %></td>
-  <td class="center"><%= l(:field_center) %></td>
-  <td class="department"><%= l(:field_department) %></td>
+  <td class="location"><%= user&.location&.province&.name %></td>
+  <td class="center"><%= user&.center&.name %></td>
+  <td class="department"><%= user&.department&.name %></td> 
+  <td class="job_position"><%= user&.job_position&.name %></td>
   <td class="phone"><%= user.phone %></td>
   <td class="birthday"><%=user.birthday.present? ? user.birthday.strftime("%m/%d/%Y") : " " %></td>
   <td class="sex"><%= user.sex ? "Nam" : "Nữ"%></td>

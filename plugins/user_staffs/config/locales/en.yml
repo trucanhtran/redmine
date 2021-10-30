@@ -7,7 +7,7 @@ en:
   field_another_email: "Mail khác"
   field_active_kpi: "Active KPI"
   field_active_bug: "Active bug"
-  field_region: "Vùng miền"
+  field_location: "Vùng miền"
   field_center: "Trung tâm"
   field_department: "Phòng ban"
   field_phone: "Số điện thoại"
