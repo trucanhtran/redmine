@@ -3,9 +3,10 @@ module UserPatch
     base.send(:include, InstanceMethods)
     base.class_eval do
       unloadable
-      belongs_to :province
+      belongs_to :location
       belongs_to :department
       belongs_to :center
+      belongs_to :job_position
       # validate :validates_user_phone
     end
 
