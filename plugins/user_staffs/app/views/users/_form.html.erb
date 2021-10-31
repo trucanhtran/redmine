@@ -17,7 +17,7 @@
   <p><%= f.check_box :active_bug %></p>
   <p>
     <%= f.label :location_id, "Vùng miền"%>
-    <%= f.collection_select :location_id, @provinces, :id, :name %>
+    <%= f.collection_select :location_id, @locations, :id, :name %>
   </p>
   <p>
     <%= f.label :center, "Trung tâm"%>

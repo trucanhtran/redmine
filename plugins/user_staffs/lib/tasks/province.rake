@@ -15,9 +15,24 @@ namespace :province do
             phone_code: province["phone_code"],
           )
         puts "#{province["name"]}"
-        province["districts"].each do |district|
-         p district["name"]
+        province["districts"].each do |district|       
+          District.find_or_create_by(
+            name: district["name"],
+            code: district["code"],
+            code_name: district["codename"],
+            phone_code: district["phone_code"],
+          )
+          puts "#{district["name"]}"
 
+          district["wards"].each do |ward|       
+            Ward.find_or_create_by(
+              name: ward["name"],
+              code: ward["code"],
+              code_name: ward["codename"],
+              phone_code: ward["phone_code"],
+            )
+            puts "#{ward["name"]}"
+          end
         end
       rescue
         byebug

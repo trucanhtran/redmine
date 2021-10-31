@@ -39,7 +39,7 @@ module UsersControllerPatch
   end
 
   def init_data
-    @provinces = Province.where(code: ["1", "79"])
+    @locations = Province.where(code: ["1","79"])
     @departments = Department.all
     @centers = Center.all
     @job_positions = JobPosition.all
