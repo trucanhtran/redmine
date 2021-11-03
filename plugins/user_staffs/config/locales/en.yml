@@ -1,6 +1,11 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+  label_information_plural: "Thông tin cá nhân"
+  label_contract: "Hợp đồng"
+  label_skill: "Kỹ năng"
+  label_kpi: "Thông tin KPI"
+  label_identify: "CMND"
   field_firstname: "Họ"
   field_lastname: "Tên"
   field_name: "Họ và tên"

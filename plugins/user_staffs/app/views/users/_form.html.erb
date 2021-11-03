@@ -13,22 +13,6 @@
   <p>    
     <%= f.text_field :another_email, label: :field_another_email%>
   </p>
-  <p><%= f.check_box :active_kpi %></p>
-  <p><%= f.check_box :active_bug %></p>
-  <p>
-    <%= f.label :location_id, "Vùng miền"%>
-    <%= f.collection_select :location_id, @locations, :id, :name %>
-  </p>
-  <p>
-    <%= f.label :center, "Trung tâm"%>
-    <%= f.collection_select :center_id, @centers, :id, :name %>
-  </p>
-  <p>
-    <%= f.label :department, "Phòng ban"%>
-    <%= f.collection_select :department_id, @departments, :id, :name %>
-  </p>
-  <p><%= f.phone_field :phone%></p>
-  <p><%= f.date_field :birthday, :required => true %></p>
   <p>
     <%= f.label :job_position, "Chức vụ"%>
     <%= f.collection_select :job_position_id, @job_positions, :id, :name %>
@@ -41,6 +25,9 @@
     <%= f.radio_button :sex, "false", :required => true,:size => 25%>
     <%= f.label :sex, "Nữ"%>
   </p>
+  <p><%= f.date_field :birthday, :required => true %></p>
+  <p><%= f.phone_field :phone%></p>
+
   <% unless @user.force_default_language? %>
   <p><%= f.select :language, lang_options_for_select %></p>
   <% end %>
@@ -54,6 +41,28 @@
 
   <p><%= f.check_box :admin, :disabled => (@user == User.current) %></p>
   <%= call_hook(:view_users_form, :user => @user, :form => f) %>
+</fieldset>
+
+<fieldset class="box tabular">
+   <legend><%=l(:label_contract)%></legend>
+  <p>
+    <%= f.label :location_id, "Vùng miền"%>
+    <%= f.collection_select :location_id, @locations, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :location_id, "Hợp đồng"%>
+    <%= f.collection_select :location_id, @locations, :id, :name, label: "aaaaaaa"%>
+  </p>
+  <p><%= f.date_field :start_date_contract, label: "Từ"%></p>
+  <p><%= f.date_field :due_date_contract, label: "Đến"%></p>
+  <p>
+    <%= f.label :location_id, "Trạng thái"%>
+    <%= f.collection_select :location_id, @locations, :id, :name %>
+  </p>
+  <p><%= f.date_field :start_date_off, label: "Từ"%></p>
+  <p>
+    <%= f.date_field :start_date_company, label: "Ngày vào công ty", required: true%>
+  </p>
 </fieldset>
 
 <fieldset class="box tabular">
@@ -77,6 +86,146 @@
 </div>
 
 <div class="splitcontentright">
+<fieldset class="box tabular">
+   <legend><%=l(:label_skill)%></legend>
+  <p>
+    <%= f.text_field :hardskill, label: "Hardskill"%>
+  </p>
+  <p>
+    <%= f.text_field :softskill, label: "Softskill"%>
+  </p>
+  <p>
+    <%= f.text_area :achievement, label: "Certifycation"%>
+  </p>
+</fieldset>
+<fieldset class="box tabular">
+   <legend><%=l(:label_kpi)%></legend>
+  <p>
+    <%= f.label :center, "Trung tâm"%>
+    <%= f.collection_select :center_id, @centers, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :department, "Phòng ban"%>
+    <%= f.collection_select :department_id, @departments, :id, :name %>
+  </p>
+  <p><%= f.check_box :active_kpi %></p>
+  <p><%= f.check_box :active_bug %></p>
+</fieldset>
+<fieldset class="box tabular">
+  <legend><%=l(:label_identify)%></legend>
+  <p>
+    <%= f.text_field :identity_card, label: "CMND"%>
+  </p>
+  <p>
+    <%= f.date_field :identity_date, label: "Ngày cấp"%>
+  </p>
+  <p>
+    <%= f.text_field :identity_by, label: "Nơi cấp"%>
+  </p>
+  <p>
+    <%= f.text_field :ethnic, label: "Dân tộc"%>
+  </p>
+
+  <p>
+    <label>Địa chỉ thường trú </label>
+  </p>
+  <p>
+    <label>Tỉnh, thành phố<label>
+  </p>
+  <p>  
+    <select id="id_provinces">
+      <option disabled selected value> -- Select an option -- </option>
+      <% @provinces.each do |province|%>
+        <option value="<%= province.id%>">
+          <%= province.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    <label>Quận, huyện<label>
+  </p>
+  <p>
+    <select id="id_districts">
+      <option disabled selected value></option>
+      <% @districts.each do |district|%>
+        <option style="display:none" value="<%= district.id%>">
+          <%= district.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
+    <label>Phường, xã<label>
+  </p>
+  <p>
+    <select id="id_wards">
+      <option disabled selected value></option>
+      <% @wards.each do |ward|%>
+        <option style="display:none" value="<%= ward.id%>">
+          <%= ward.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    <%= f.text_area :permanent_address, label: 'Số nhà, đường,...', id: 'id_adress'%>
+  </p>
+  <p>
+    <label>Địa chỉ tạm trú</label>
+  </p>
+  <p>
+    <label>Tỉnh, thành phố<label>
+  </p>
+  <p>  
+    <select id="id_provinces">
+      <option disabled selected value> -- Select an option -- </option>
+      <% @provinces.each do |province|%>
+        <option value="<%= province.id%>">
+          <%= province.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    <label>Quận, huyện<label>
+  </p>
+  <p>
+    <select id="id_districts">
+      <option disabled selected value></option>
+      <% @districts.each do |district|%>
+        <option style="display:none" value="<%= district.id%>">
+          <%= district.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
+    <label>Phường, xã<label>
+  </p>
+  <p>
+    <select id="id_wards">
+      <option disabled selected value></option>
+      <% @wards.each do |ward|%>
+        <option style="display:none" value="<%= ward.id%>">
+          <%= ward.name %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    <%= f.text_area :temporary_address, label: 'Số nhà, đường,...', id: 'id_adress'%>
+  </p>
+  <p>
+    <%= f.text_field :contact, label: 'Liên hệ'%>
+  </p>
+  <p>
+    <%= f.text_area :note, label: 'Ghi chú'%>
+  </p>
+</fieldset>
+
 <fieldset class="box">
   <legend><%=l(:field_mail_notification)%></legend>
   <%= render :partial => 'users/mail_notifications' %>
@@ -104,4 +253,63 @@ $(document).ready(function(){
     }
   }).trigger('change');
 });
+<% end %>
+
+<%= javascript_tag do %>
+function handleDisplayDistricts(data){
+  districts_selector = document.getElementById("id_districts");
+  districts_selector.innerHTML = ''
+  for (var i = 0; i < data.length; i++){
+    var node = document.createElement('option');
+    var textNode = document.createTextNode(data[i].name);
+    var value = node.setAttribute('value', data[i].id);
+    node.appendChild(textNode);
+    districts_selector.appendChild(node);
+  }
+}
+
+function handleDisplayWards(data){
+  console.log(data);
+  wards_selector = document.getElementById("id_wards");
+  wards_selector.innerHTML = ''
+  for (var i = 0; i < data.length; i++){
+    var node = document.createElement('option');
+    var textNode = document.createTextNode(data[i].name);
+    var value = node.setAttribute('value', data[i].id);
+    node.appendChild(textNode);
+    wards_selector.appendChild(node);
+  };
+};
+
+function handleDisplayInput(data){
+  const adress_node = document.getElementById("id_adress");
+  const provinces_node = document.getElementById("id_provinces");
+  const districts_node = document.getElementById("id_districts");
+  const wards_node = document.getElementById("id_wards");
+  adress_node.value = `${wards_node.options[wards_node.selectedIndex].text}, ${districts_node.options[districts_node.selectedIndex].text}, ${provinces_node.options[provinces_node.selectedIndex].text}`;
+  
+  };
+
+  $(document).ready(function(){
+    $(document).on("change", "#id_provinces", function(event){
+      const value = event.target.value;
+      $.post("/user/display_districts", {place_id: value} , function(data){
+        handleDisplayDistricts(data);
+      });
+    });
+
+    $(document).on("change", "#id_districts", function(event){
+      const value = event.target.value;
+      $.post("/user/display_wards", {place_id: value} , function(data){
+        handleDisplayWards(data);
+      });
+    });
+
+    $(document).on("change", "#id_wards", function(event){
+      const value = event.target.value;
+      $.post("/user/display_input", {place_id: value} , function(data){
+        handleDisplayInput(data);
+      });
+    });
+  });
 <% end %>

@@ -14,7 +14,7 @@ module UserPatch
   module InstanceMethods
     def validates_user_phone
       p "-------------------------------------------------------------"
-      if phone.present? && (phone.to_s.size < 10 || phone.to_s.size > 15)
+      if phone.present? && (phone.to_s.size < 9 || phone.to_s.size > 14)
         p phone
         errors.add(:phone, "Can't save")
       end
