@@ -20,4 +20,16 @@ Rails.application.configure do
 
   # Print deprecation notices to stderr and the Rails logger.
   config.active_support.deprecation = [:stderr, :log]
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "trucanh88879@gmail.com",
+    :password             => "nqqkajehnxeteaxf",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 end

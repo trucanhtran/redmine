@@ -1,0 +1,70 @@
+require_dependency 'users_controller'
+
+module UsersControllerPatch
+
+  
+
+  def new
+    init_data
+    super
+  end
+
+  def create
+    super
+    @user.update(user_params)
+  end
+
+  def edit
+    init_data
+    super
+    
+  end
+
+  def update
+    init_data
+    super
+    p user_params
+
+    @user.update(user_params)
+  end
+
+  def display_districts
+    province = Province.find_by(id: params[:place_id])
+    districts = province.districts
+    render json: districts
+  end
+
+  def display_wards
+    district = District.find_by(id: params[:place_id])
+    wards = district.wards
+    render json: wards
+  end
+
+  def display_input
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(
+      :login, :firstname, :lastname, :mail,
+      :language, :admin, :password, :password_confirmation, :generate_password, :must_change_passwd, :mail_notification, :notified_project_ids, 
+      :another_email, :phone, :location_id, :birthday, :sex, :active_kpi,
+      :active_bug, :department_id, :center_id, :job_position_id, :permanent_address,
+      :hardskill, :softskill, :achievement, :start_date_company, :start_date_contract,
+      :due_date_contract, :start_date_off, :place_birth, :permanent_address,
+      :temporary_address, :identity_card, :identity_date, :identity_by, :ethnic, :contact,
+      :note
+    )
+  end
+
+  def init_data
+    @locations = Province.joins(:location).select("provinces.name as name, locations.id as id")
+    @departments = Department.all
+    @centers = Center.all
+    @job_positions = JobPosition.all
+    @provinces = Province.all
+    @districts = District.all
+    @wards = Ward.all
+  end
+
+end

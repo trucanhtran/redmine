@@ -1,0 +1,21 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  label_information_plural: "Thông tin cá nhân"
+  label_contract: "Hợp đồng"
+  label_skill: "Kỹ năng"
+  label_kpi: "Thông tin KPI"
+  label_identify: "CMND"
+  field_firstname: "Họ"
+  field_lastname: "Tên"
+  field_name: "Họ và tên"
+  field_another_email: "Mail khác"
+  field_active_kpi: "Active KPI"
+  field_active_bug: "Active bug"
+  field_location: "Vùng miền"
+  field_center: "Trung tâm"
+  field_department: "Phòng ban"
+  field_phone: "Số điện thoại"
+  field_birthday: "Ngày sinh"
+  field_sex: "Giới tính"
+
