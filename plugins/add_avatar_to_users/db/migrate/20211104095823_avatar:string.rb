@@ -1,0 +1,4 @@
+class Avatar:string < ActiveRecord::Migration[5.2]
+  def change
+  end
+end

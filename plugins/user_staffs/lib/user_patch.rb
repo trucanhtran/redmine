@@ -1,3 +1,4 @@
+require_dependency 'users_helper' 
 module UserPatch
   def self.included(base)
     base.send(:include, InstanceMethods)
@@ -8,6 +9,7 @@ module UserPatch
       belongs_to :center
       belongs_to :job_position
       validate :validates_user_phone, on: [:create, :update]
+      acts_as_attachable
     end
   end
 
@@ -19,5 +21,7 @@ module UserPatch
         errors.add(:phone, "Can't save")
       end
     end
+
   end
 end
+

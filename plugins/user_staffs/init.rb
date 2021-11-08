@@ -1,7 +1,8 @@
 require 'redmine'
 require_dependency 'users_controller_patch'
 require_dependency 'user_patch'
-require_dependency 'application_controller'
+require 'application_helper_user_patch'
+
 
 Rails.application.config.to_prepare do
   User.send(:include, UserPatch)

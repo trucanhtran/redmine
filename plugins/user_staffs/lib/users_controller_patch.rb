@@ -2,16 +2,19 @@ require_dependency 'users_controller'
 
 module UsersControllerPatch
 
-  
-
   def new
     init_data
     super
   end
 
   def create
+    init_data
     super
+    # Attachment.attach_files(@user, params[:attachments])
     @user.update(user_params)
+    byebug
+    @user.save_attachments(params[:attachments]) 
+    @user.save
   end
 
   def edit
@@ -26,6 +29,9 @@ module UsersControllerPatch
     p user_params
 
     @user.update(user_params)
+    byebug
+    @user.save_attachments(params[:attachments])
+
   end
 
   def display_districts
@@ -43,7 +49,7 @@ module UsersControllerPatch
   def display_input
   end
 
-  private
+   private
   def user_params
     params.require(:user).permit(
       :login, :firstname, :lastname, :mail,
@@ -53,7 +59,7 @@ module UsersControllerPatch
       :hardskill, :softskill, :achievement, :start_date_company, :start_date_contract,
       :due_date_contract, :start_date_off, :place_birth, :permanent_address,
       :temporary_address, :identity_card, :identity_date, :identity_by, :ethnic, :contact,
-      :note
+      :note, :avatar
     )
   end
 

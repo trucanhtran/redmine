@@ -60,7 +60,7 @@
       <%= delete_link user_path(user, :back_url => request.original_fullpath) unless User.current == user %>
     </td>
   <td class="username"><%= avatar(user, :size => "14") %><%= link_to user.login, edit_user_path(user) %></td>
-  <td class="name"><%= user.firstname << " " << user.lastname%></td>
+  <td class="name"><%= user.firstname << " " << user.lastname %></td>
   <td class="email"><%= mail_to(user.mail)  %></td>
   <td class="another_email"><%= mail_to(user.another_email)%></td>
   <td class="active_kpi tick"><%= checked_image user.active_kpi? %></td>
