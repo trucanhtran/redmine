@@ -59,18 +59,22 @@ module UsersControllerPatch
       :hardskill, :softskill, :achievement, :start_date_company, :start_date_contract,
       :due_date_contract, :start_date_off, :place_birth, :permanent_address,
       :temporary_address, :identity_card, :identity_date, :identity_by, :ethnic, :contact,
-      :note, :avatar
+      :note, :avatar, :contract_id, :work_id, :team_leader
     )
   end
 
   def init_data
     @locations = Province.joins(:location).select("provinces.name as name, locations.id as id")
+    @job_positions = JobPosition.all
+    @contracts = Contract.all
+    @works = Work.all
     @departments = Department.all
     @centers = Center.all
-    @job_positions = JobPosition.all
+    @team_leaders = ['ANT54', 'ThanhTC21', 'CuongDD14']
     @provinces = Province.all
     @districts = District.all
     @wards = Ward.all
+    @place_births = Province.all
   end
 
 end

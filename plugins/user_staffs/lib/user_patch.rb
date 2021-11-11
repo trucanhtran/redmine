@@ -8,6 +8,8 @@ module UserPatch
       belongs_to :department
       belongs_to :center
       belongs_to :job_position
+      belongs_to :contract
+      belongs_to :work
       validate :validates_user_phone, on: [:create, :update]
       acts_as_attachable
     end

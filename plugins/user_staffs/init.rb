@@ -2,6 +2,7 @@ require 'redmine'
 require_dependency 'users_controller_patch'
 require_dependency 'user_patch'
 require 'application_helper_user_patch'
+require 'hooks/helper_issues_show_detail_after_setting_hook'
 
 
 Rails.application.config.to_prepare do
