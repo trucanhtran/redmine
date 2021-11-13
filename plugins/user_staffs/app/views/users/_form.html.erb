@@ -4,8 +4,69 @@
 <!--[form:user]-->
 <div class="splitcontent">
 <div class="splitcontentleft">
-<fieldset class="box tabular">
+
+<fieldset class="box tabular user-avatar-container">
+  <legend><%=l(:label_avatar)%></legend>
+
+  <% attachment_param ||= 'attachments' %>
+  <% saved_attachments ||= container.saved_attachments if defined?(container) && container %>
+  <% multiple = true unless defined?(multiple) && multiple == false %>
+  <% show_add = multiple || saved_attachments.blank? %>
+  <% description = (defined?(description) && description == false ? false : true) %>
+  <% css_class = (defined?(filedrop) && filedrop == false ? '' : 'filedrop') %>
+
+  <span class="attachments_form">
+    <span class="attachments_fields user-avatar-field">
+    <% if @user.attachments.present? %>
+      <% @user.attachments.each_with_index do |attachment, i| %>
+        <span id="attachments_p<%= i %>">
+
+
+        <% images = @user.attachments.select(&:thumbnailable?) %>
+          <% if images.any? %>
+          <div class="thumbnails">
+            <% images.each do |attachment| %>
+              <% file_img = attachment.diskfile.gsub(Attachment.last.storage_path, "files") %>
+              <div class="user-avatar"><%= image_tag(attachment.diskfile.gsub("myapp/public/", "")) %></div>
+            <% end %>
+          </div>
+          <% end %>
+
+        </span>
+      <% end %>
+
+    <% end %>
+    </span>
+    <span class="add_attachment" style="<%= show_add ? nil : 'display:none;' %>">
+      <%= file_field_tag "#{attachment_param}[dummy][file]",
+          :id => nil,
+          :class => "file_selector #{css_class}",
+          :multiple => multiple,
+          :onchange => 'addInputFiles(this);',
+          :data => {
+            :max_file_size => Setting.attachment_max_size.to_i.kilobytes,
+            :max_file_size_message => l(:error_attachment_too_big, :max_size => number_to_human_size(Setting.attachment_max_size.to_i.kilobytes)),
+            :max_concurrent_uploads => Redmine::Configuration['max_concurrent_ajax_uploads'].to_i,
+            :upload_path => uploads_path(:format => 'js'),
+            :param => attachment_param,
+            :description => description,
+            :description_placeholder => l(:label_optional_description)
+          } %>
+      (<%= l(:label_max_size) %>: <%= number_to_human_size(Setting.attachment_max_size.to_i.kilobytes) %>)
+    </span>
+  </span>
+
+  <% content_for :header_tags do %>
+    <%= javascript_include_tag 'attachments' %>
+  <% end %>
+
+</fieldset>
+
+  <!--User!-->
+
+  <fieldset class="box tabular">
   <legend><%=l(:label_information_plural)%></legend>
+
   <p><%= f.text_field :login, :required => true, :size => 25  %></p>
   <p><%= f.text_field :firstname, :required => true, label: :field_firstname %></p>
   <p><%= f.text_field :lastname, :required => true, label: :field_lastname %></p>
@@ -25,7 +86,11 @@
     <%= f.radio_button :sex, "false", :required => true,:size => 25%>
     <%= f.label :sex, "Nữ"%>
   </p>
-  <p><%= f.date_field :birthday, :required => true %></p>
+  <p><%= f.date_field :birthday %></p>
+  <p>
+    <%= f.label :place_birth, "Nơi sinh"%>
+    <%= f.collection_select :place_birth, @place_births, :name, :name %>
+  </p>
   <p><%= f.phone_field :phone%></p>
 
   <% unless @user.force_default_language? %>
@@ -51,13 +116,13 @@
   </p>
   <p>
     <%= f.label :location_id, "Hợp đồng"%>
-    <%= f.collection_select :location_id, @locations, :id, :name, label: "aaaaaaa"%>
+    <%= f.collection_select :contract_id, @contracts, :id, :name, label: "aaaaaaa"%>
   </p>
   <p><%= f.date_field :start_date_contract, label: "Từ"%></p>
   <p><%= f.date_field :due_date_contract, label: "Đến"%></p>
   <p>
     <%= f.label :location_id, "Trạng thái"%>
-    <%= f.collection_select :location_id, @locations, :id, :name %>
+    <%= f.collection_select :work_id, @works, :id, :status %>
   </p>
   <p><%= f.date_field :start_date_off, label: "Từ"%></p>
   <p>
@@ -108,7 +173,11 @@
     <%= f.label :department, "Phòng ban"%>
     <%= f.collection_select :department_id, @departments, :id, :name %>
   </p>
-  <p><%= f.check_box :active_kpi %></p>
+  <p>
+    <%= f.label :team_leader, "Team Leader"%>
+    <%= f.collection_select :team_leader, @team_leaders, :to_s, :to_s %>
+  </p>
+   <p><%= f.check_box :active_kpi %></p>
   <p><%= f.check_box :active_bug %></p>
 </fieldset>
 <fieldset class="box tabular">
@@ -312,4 +381,8 @@ function handleDisplayInput(data){
       });
     });
   });
+<% end %>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'avatar.css', :plugin => 'user_staffs' %>
 <% end %>

@@ -2,16 +2,18 @@ require_dependency 'users_controller'
 
 module UsersControllerPatch
 
-  
-
   def new
     init_data
     super
   end
 
   def create
+    init_data
     super
+    # Attachment.attach_files(@user, params[:attachments])
     @user.update(user_params)
+    @user.save_attachments(params[:attachments]) 
+    @user.save
   end
 
   def edit
@@ -26,6 +28,12 @@ module UsersControllerPatch
     p user_params
 
     @user.update(user_params)
+    # Attachment.update_attachments(@user.attachments, params[:attachments])
+    if @user.attachments.present?
+      @user.attachments.clear
+    end
+    @user.save_attachments(params[:attachments])
+    @user.save
   end
 
   def display_districts
@@ -43,7 +51,7 @@ module UsersControllerPatch
   def display_input
   end
 
-  private
+   private
   def user_params
     params.require(:user).permit(
       :login, :firstname, :lastname, :mail,
@@ -53,18 +61,22 @@ module UsersControllerPatch
       :hardskill, :softskill, :achievement, :start_date_company, :start_date_contract,
       :due_date_contract, :start_date_off, :place_birth, :permanent_address,
       :temporary_address, :identity_card, :identity_date, :identity_by, :ethnic, :contact,
-      :note
+      :note, :avatar, :contract_id, :work_id, :team_leader
     )
   end
 
   def init_data
     @locations = Province.joins(:location).select("provinces.name as name, locations.id as id")
+    @job_positions = JobPosition.all
+    @contracts = Contract.all
+    @works = Work.all
     @departments = Department.all
     @centers = Center.all
-    @job_positions = JobPosition.all
+    @team_leaders = ['ANT54', 'ThanhTC21', 'CuongDD14']
     @provinces = Province.all
     @districts = District.all
     @wards = Ward.all
+    @place_births = Province.all
   end
 
 end
