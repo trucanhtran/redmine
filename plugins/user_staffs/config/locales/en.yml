@@ -1,6 +1,7 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+  label_avatar: "Ảnh đại diện"
   label_information_plural: "Thông tin cá nhân"
   label_contract: "Hợp đồng"
   label_skill: "Kỹ năng"

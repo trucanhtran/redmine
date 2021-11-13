@@ -4,65 +4,68 @@
 <!--[form:user]-->
 <div class="splitcontent">
 <div class="splitcontentleft">
-<fieldset class="box tabular">
-  <legend><%=l(:label_information_plural)%></legend>
 
-<% attachment_param ||= 'attachments' %>
-<% saved_attachments ||= container.saved_attachments if defined?(container) && container %>
-<% multiple = true unless defined?(multiple) && multiple == false %>
-<% show_add = multiple || saved_attachments.blank? %>
-<% description = (defined?(description) && description == false ? false : true) %>
-<% css_class = (defined?(filedrop) && filedrop == false ? '' : 'filedrop') %>
+<fieldset class="box tabular user-avatar-container">
+  <legend><%=l(:label_avatar)%></legend>
 
-<span class="attachments_form">
-  <span class="attachments_fields">
-  <% if @user.attachments.present? %>
-    <% @user.attachments.each_with_index do |attachment, i| %>
-      <span id="attachments_p<%= i %>">
+  <% attachment_param ||= 'attachments' %>
+  <% saved_attachments ||= container.saved_attachments if defined?(container) && container %>
+  <% multiple = true unless defined?(multiple) && multiple == false %>
+  <% show_add = multiple || saved_attachments.blank? %>
+  <% description = (defined?(description) && description == false ? false : true) %>
+  <% css_class = (defined?(filedrop) && filedrop == false ? '' : 'filedrop') %>
 
-        <%= link_to_attachment attachment,
-:thumbnails => true,
-:author => true %>
+  <span class="attachments_form">
+    <span class="attachments_fields user-avatar-field">
+    <% if @user.attachments.present? %>
+      <% @user.attachments.each_with_index do |attachment, i| %>
+        <span id="attachments_p<%= i %>">
 
-        <%=image_tag attachment.is_image? ?  attachment.thumbnail
-             : "this is not image"%>
 
-        <%= text_field_tag("#{attachment_param}[p#{i}][filename]", attachment.filename, :class => 'filename') %>
-        <% if attachment.container_id.present? %>
-          <%= link_to l(:label_delete), "#", :onclick => "$(this).closest('.attachments_form').find('.add_attachment').show(); $(this).parent().remove(); return false;", :class => 'icon-only icon-del' %>
-        <% else %>
-          <%= text_field_tag("#{attachment_param}[p#{i}][description]", attachment.description, :maxlength => 255, :placeholder => l(:label_optional_description), :class => 'description') if description %>
-          <%= link_to('&nbsp;'.html_safe, attachment_path(attachment, :attachment_id => "p#{i}", :format => 'js'), :method => 'delete', :remote => true, :class => 'icon-only icon-del remove-upload') %>
-        <% end %>
-      </span>
+        <% images = @user.attachments.select(&:thumbnailable?) %>
+          <% if images.any? %>
+          <div class="thumbnails">
+            <% images.each do |attachment| %>
+              <% file_img = attachment.diskfile.gsub(Attachment.last.storage_path, "files") %>
+              <div class="user-avatar"><%= image_tag(attachment.diskfile.gsub("myapp/public/", "")) %></div>
+            <% end %>
+          </div>
+          <% end %>
+
+        </span>
+      <% end %>
+
     <% end %>
+    </span>
+    <span class="add_attachment" style="<%= show_add ? nil : 'display:none;' %>">
+      <%= file_field_tag "#{attachment_param}[dummy][file]",
+          :id => nil,
+          :class => "file_selector #{css_class}",
+          :multiple => multiple,
+          :onchange => 'addInputFiles(this);',
+          :data => {
+            :max_file_size => Setting.attachment_max_size.to_i.kilobytes,
+            :max_file_size_message => l(:error_attachment_too_big, :max_size => number_to_human_size(Setting.attachment_max_size.to_i.kilobytes)),
+            :max_concurrent_uploads => Redmine::Configuration['max_concurrent_ajax_uploads'].to_i,
+            :upload_path => uploads_path(:format => 'js'),
+            :param => attachment_param,
+            :description => description,
+            :description_placeholder => l(:label_optional_description)
+          } %>
+      (<%= l(:label_max_size) %>: <%= number_to_human_size(Setting.attachment_max_size.to_i.kilobytes) %>)
+    </span>
+  </span>
 
+  <% content_for :header_tags do %>
+    <%= javascript_include_tag 'attachments' %>
   <% end %>
-  </span>
-  <span class="add_attachment" style="<%= show_add ? nil : 'display:none;' %>">
-    <%= file_field_tag "#{attachment_param}[dummy][file]",
-        :id => nil,
-        :class => "file_selector #{css_class}",
-        :multiple => multiple,
-        :onchange => 'addInputFiles(this);',
-        :data => {
-          :max_file_size => Setting.attachment_max_size.to_i.kilobytes,
-          :max_file_size_message => l(:error_attachment_too_big, :max_size => number_to_human_size(Setting.attachment_max_size.to_i.kilobytes)),
-          :max_concurrent_uploads => Redmine::Configuration['max_concurrent_ajax_uploads'].to_i,
-          :upload_path => uploads_path(:format => 'js'),
-          :param => attachment_param,
-          :description => description,
-          :description_placeholder => l(:label_optional_description)
-        } %>
-    (<%= l(:label_max_size) %>: <%= number_to_human_size(Setting.attachment_max_size.to_i.kilobytes) %>)
-  </span>
-</span>
 
-<% content_for :header_tags do %>
-  <%= javascript_include_tag 'attachments' %>
-<% end %>
+</fieldset>
 
   <!--User!-->
+
+  <fieldset class="box tabular">
+  <legend><%=l(:label_information_plural)%></legend>
 
   <p><%= f.text_field :login, :required => true, :size => 25  %></p>
   <p><%= f.text_field :firstname, :required => true, label: :field_firstname %></p>
@@ -378,4 +381,8 @@ function handleDisplayInput(data){
       });
     });
   });
+<% end %>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'avatar.css', :plugin => 'user_staffs' %>
 <% end %>

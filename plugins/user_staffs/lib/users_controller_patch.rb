@@ -12,7 +12,6 @@ module UsersControllerPatch
     super
     # Attachment.attach_files(@user, params[:attachments])
     @user.update(user_params)
-    byebug
     @user.save_attachments(params[:attachments]) 
     @user.save
   end
@@ -29,9 +28,12 @@ module UsersControllerPatch
     p user_params
 
     @user.update(user_params)
-    byebug
+    # Attachment.update_attachments(@user.attachments, params[:attachments])
+    if @user.attachments.present?
+      @user.attachments.clear
+    end
     @user.save_attachments(params[:attachments])
-
+    @user.save
   end
 
   def display_districts
