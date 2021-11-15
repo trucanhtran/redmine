@@ -67,7 +67,7 @@ CREATE TABLE `attachments` (
   KEY `index_attachments_on_created_on` (`created_on`),
   KEY `index_attachments_on_container_id_and_container_type` (`container_id`,`container_type`),
   KEY `index_attachments_on_disk_filename` (`disk_filename`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,6 +76,7 @@ CREATE TABLE `attachments` (
 
 LOCK TABLES `attachments` WRITE;
 /*!40000 ALTER TABLE `attachments` DISABLE KEYS */;
+INSERT INTO `attachments` VALUES (1,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 08:52:42',NULL,'2021/11'),(2,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 09:01:00',NULL,'2021/11'),(3,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 09:09:04',NULL,'2021/11'),(4,NULL,NULL,'Screenshot from 2021-10-27 10-20-03.png','211107131707_2c2d9b5fd0a4d7919974f5d015ad6191.png',93464,'image/png','1f07627d26c9b8616df32037b7839e3bab660f94fa331dbd6b39bd29acefd458',0,1,'2021-11-07 13:17:07',NULL,'2021/11'),(5,NULL,NULL,'Screenshot from 2021-10-27 10-20-03.png','211107131707_2c2d9b5fd0a4d7919974f5d015ad6191.png',93464,'image/png','1f07627d26c9b8616df32037b7839e3bab660f94fa331dbd6b39bd29acefd458',0,1,'2021-11-07 13:24:37',NULL,'2021/11'),(6,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 13:28:53',NULL,'2021/11'),(7,NULL,NULL,'Screenshot from 2021-10-27 10-20-03.png','211107131707_2c2d9b5fd0a4d7919974f5d015ad6191.png',93464,'image/png','1f07627d26c9b8616df32037b7839e3bab660f94fa331dbd6b39bd29acefd458',0,1,'2021-11-07 13:35:23',NULL,'2021/11'),(8,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 13:35:38',NULL,'2021/11'),(9,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 13:45:33',NULL,'2021/11'),(10,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211107085242_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-07 14:58:05',NULL,'2021/11'),(12,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-12 15:32:16',NULL,'2021/11'),(13,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-12 15:41:09',NULL,'2021/11'),(14,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 03:14:48',NULL,'2021/11'),(15,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 03:15:23',NULL,'2021/11'),(16,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 03:15:44',NULL,'2021/11'),(17,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 03:16:53',NULL,'2021/11'),(18,NULL,NULL,'Screenshot from 2021-10-27 10-20-03.png','211113032339_2c2d9b5fd0a4d7919974f5d015ad6191.png',93464,'image/png','1f07627d26c9b8616df32037b7839e3bab660f94fa331dbd6b39bd29acefd458',0,1,'2021-11-13 03:23:39',NULL,'2021/11'),(20,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 04:17:16',NULL,'2021/11'),(21,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 04:22:18',NULL,'2021/11'),(22,NULL,NULL,'Screenshot from 2021-10-28 10-29-24.png','211112153216_a67ce39be25cee04cb9bf8d6ce4c8400.png',195779,'image/png','0468895bb2b2b0264c52e67d0d6c8ab5bff7e0bf7ea7141b2bbe90de93017779',0,1,'2021-11-13 04:26:26',NULL,'2021/11');
 /*!40000 ALTER TABLE `attachments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,6 +317,30 @@ CREATE TABLE `comments` (
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contracts`
+--
+
+DROP TABLE IF EXISTS `contracts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contracts` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contracts`
+--
+
+LOCK TABLES `contracts` WRITE;
+/*!40000 ALTER TABLE `contracts` DISABLE KEYS */;
+INSERT INTO `contracts` VALUES (1,'HD Thử việc'),(2,'HĐLĐ xác định thời hạn 12 tháng'),(3,'HĐLĐ XĐTH trên 12T đến 36T'),(4,'HĐLĐ Không xác định thời hạn'),(5,'HĐ Thực tập');
+/*!40000 ALTER TABLE `contracts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1001,7 +1026,7 @@ CREATE TABLE `email_addresses` (
   `updated_on` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_email_addresses_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1010,7 +1035,7 @@ CREATE TABLE `email_addresses` (
 
 LOCK TABLES `email_addresses` WRITE;
 /*!40000 ALTER TABLE `email_addresses` DISABLE KEYS */;
-INSERT INTO `email_addresses` VALUES (1,1,'admin@example.net',1,1,'2021-09-29 14:38:12','2021-09-29 14:38:12'),(2,1,'trucanh88879@gmail.com',0,1,'2021-10-05 15:02:09','2021-10-05 15:02:09'),(6,8,'anhtructran111@gmail.com',1,1,'2021-10-19 06:50:37','2021-10-19 06:50:37'),(7,9,'1@gmail.com',1,1,'2021-10-27 11:17:48','2021-10-27 11:17:48');
+INSERT INTO `email_addresses` VALUES (1,1,'admin@example.net',1,1,'2021-09-29 14:38:12','2021-09-29 14:38:12'),(2,1,'trucanh88879@gmail.com',0,1,'2021-10-05 15:02:09','2021-10-05 15:02:09'),(24,26,'anhttt18411@st.uel.edu.vn',1,1,'2021-11-14 08:35:54','2021-11-14 08:35:54');
 /*!40000 ALTER TABLE `email_addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1293,7 +1318,7 @@ CREATE TABLE `issues` (
 
 LOCK TABLES `issues` WRITE;
 /*!40000 ALTER TABLE `issues` DISABLE KEYS */;
-INSERT INTO `issues` VALUES (1,1,1,'hello','',NULL,NULL,6,NULL,2,1,1,11,'2021-09-30 15:25:56','2021-10-01 15:42:18','2021-09-30',0,NULL,NULL,1,1,2,0,'2021-10-01 15:39:59',NULL),(4,1,1,'abc','',NULL,NULL,3,NULL,2,NULL,1,1,'2021-10-02 15:36:11','2021-10-02 15:36:38','2021-10-02',0,NULL,NULL,4,1,2,0,NULL,NULL),(8,3,1,'Nice','',NULL,NULL,1,NULL,2,NULL,1,0,'2021-10-05 03:38:04','2021-10-05 03:38:04','2021-10-05',0,NULL,NULL,8,1,2,0,NULL,NULL),(13,1,1,'testing','',NULL,NULL,3,NULL,2,NULL,1,2,'2021-10-05 03:54:16','2021-10-05 03:54:33','2021-10-05',0,NULL,NULL,13,1,2,0,NULL,'2021-05-10 00:00:00'),(14,1,1,'abcde','',NULL,NULL,3,NULL,2,NULL,1,2,'2021-10-05 10:31:31','2021-10-05 10:31:53','2021-10-05',0,NULL,NULL,14,1,2,0,NULL,'2021-10-05 10:31:53'),(15,1,1,'test mailer','',NULL,NULL,1,NULL,2,NULL,1,0,'2021-10-05 15:28:01','2021-10-05 15:28:01','2021-10-05',0,NULL,NULL,15,1,2,0,NULL,NULL);
+INSERT INTO `issues` VALUES (1,1,1,'hello','',NULL,NULL,6,NULL,2,1,1,11,'2021-09-30 15:25:56','2021-10-01 15:42:18','2021-09-30',0,NULL,NULL,1,1,2,0,'2021-10-01 15:39:59',NULL);
 /*!40000 ALTER TABLE `issues` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1346,7 +1371,7 @@ CREATE TABLE `journal_details` (
 
 LOCK TABLES `journal_details` WRITE;
 /*!40000 ALTER TABLE `journal_details` DISABLE KEYS */;
-INSERT INTO `journal_details` VALUES (1,1,'attr','fixed_version_id',NULL,'1'),(2,2,'attr','status_id','1','3'),(3,3,'attr','status_id','3','2'),(4,4,'attr','status_id','2','3'),(5,5,'attr','status_id','3','5'),(6,6,'attr','status_id','5','4'),(7,7,'attr','status_id','4','1'),(8,8,'attr','status_id','1','5'),(9,9,'attr','status_id','5','6'),(12,12,'attr','status_id','1','3'),(29,22,'attr','status_id','1','3'),(30,22,'attr','actual_end_date_issue',NULL,'2021-05-10 00:00:00 UTC'),(31,23,'attr','status_id','1','3'),(32,23,'attr','actual_end_date_issue',NULL,'2021-10-05 10:31:53 UTC');
+INSERT INTO `journal_details` VALUES (1,1,'attr','fixed_version_id',NULL,'1'),(2,2,'attr','status_id','1','3'),(3,3,'attr','status_id','3','2'),(4,4,'attr','status_id','2','3'),(5,5,'attr','status_id','3','5'),(6,6,'attr','status_id','5','4'),(7,7,'attr','status_id','4','1'),(8,8,'attr','status_id','1','5'),(9,9,'attr','status_id','5','6');
 /*!40000 ALTER TABLE `journal_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1379,7 +1404,7 @@ CREATE TABLE `journals` (
 
 LOCK TABLES `journals` WRITE;
 /*!40000 ALTER TABLE `journals` DISABLE KEYS */;
-INSERT INTO `journals` VALUES (1,1,'Issue',1,'','2021-10-01 15:07:04',0),(2,1,'Issue',1,'','2021-10-01 15:12:04',0),(3,1,'Issue',1,'','2021-10-01 15:17:04',0),(4,1,'Issue',1,'','2021-10-01 15:33:45',0),(5,1,'Issue',1,'','2021-10-01 15:34:49',0),(6,1,'Issue',1,'','2021-10-01 15:38:42',0),(7,1,'Issue',1,'','2021-10-01 15:39:07',0),(8,1,'Issue',1,'','2021-10-01 15:39:59',0),(9,1,'Issue',1,'','2021-10-01 15:42:18',0),(12,4,'Issue',1,'','2021-10-02 15:36:39',0),(22,13,'Issue',1,'','2021-10-05 03:54:33',0),(23,14,'Issue',1,'','2021-10-05 10:31:53',0);
+INSERT INTO `journals` VALUES (1,1,'Issue',1,'','2021-10-01 15:07:04',0),(2,1,'Issue',1,'','2021-10-01 15:12:04',0),(3,1,'Issue',1,'','2021-10-01 15:17:04',0),(4,1,'Issue',1,'','2021-10-01 15:33:45',0),(5,1,'Issue',1,'','2021-10-01 15:34:49',0),(6,1,'Issue',1,'','2021-10-01 15:38:42',0),(7,1,'Issue',1,'','2021-10-01 15:39:07',0),(8,1,'Issue',1,'','2021-10-01 15:39:59',0),(9,1,'Issue',1,'','2021-10-01 15:42:18',0);
 /*!40000 ALTER TABLE `journals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1503,6 +1528,31 @@ CREATE TABLE `messages` (
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `microposts`
+--
+
+DROP TABLE IF EXISTS `microposts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `microposts` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `picture` varchar(255) DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_microposts_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `microposts`
+--
+
+LOCK TABLES `microposts` WRITE;
+/*!40000 ALTER TABLE `microposts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `microposts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1876,7 +1926,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('1'),('1-redmine_dmsf'),('1-redmine_fpt_staffs'),('10'),('100'),('101'),('102'),('103'),('104'),('105'),('106'),('107'),('108'),('11'),('12'),('13'),('14'),('15'),('16'),('17'),('18'),('19'),('2'),('2-redmine_dmsf'),('2-redmine_fpt_staffs'),('20'),('20090214190337'),('20090312172426'),('20090312194159'),('20090318181151'),('20090323224724'),('20090401221305'),('20090401231134'),('20090403001910'),('20090406161854'),('20090425161243'),('20090503121501'),('20090503121505'),('20090503121510'),('20090614091200'),('20090704172350'),('20090704172355'),('20090704172358'),('20091010093521'),('20091017212227'),('20091017212457'),('20091017212644'),('20091017212938'),('20091017213027'),('20091017213113'),('20091017213151'),('20091017213228'),('20091017213257'),('20091017213332'),('20091017213444'),('20091017213536'),('20091017213642'),('20091017213716'),('20091017213757'),('20091017213835'),('20091017213910'),('20091017214015'),('20091017214107'),('20091017214136'),('20091017214236'),('20091017214308'),('20091017214336'),('20091017214406'),('20091017214440'),('20091017214519'),('20091017214611'),('20091017214644'),('20091017214720'),('20091017214750'),('20091025163651'),('20091108092559'),('20091114105931'),('20091123212029'),('20091205124427'),('20091220183509'),('20091220183727'),('20091220184736'),('20091225164732'),('20091227112908'),('20100129193402'),('20100129193813'),('20100221100219'),('20100313132032'),('20100313171051'),('20100705164950'),('20100819172912'),('20101104182107'),('20101107130441'),('20101114115114'),('20101114115359'),('20110220160626'),('20110223180944'),('20110223180953'),('20110224000000'),('20110226120112'),('20110226120132'),('20110227125750'),('20110228000000'),('20110228000100'),('20110401192910'),('20110408103312'),('20110412065600'),('20110511000000'),('20110902000000'),('20111201201315'),('20120115143024'),('20120115143100'),('20120115143126'),('20120127174243'),('20120205111326'),('20120223110929'),('20120301153455'),('20120422150750'),('20120705074331'),('20120707064544'),('20120714122000'),('20120714122100'),('20120714122200'),('20120731164049'),('20120822100401-redmine_dmsf'),('20120822100402-redmine_dmsf'),('20120822100403-redmine_dmsf'),('20120822100404-redmine_dmsf'),('20120930112914'),('20121026002032'),('20121026003537'),('20121209123234'),('20121209123358'),('20121213084931'),('20130110122628'),('20130201184705'),('20130202090625'),('20130207175206'),('20130207181455'),('20130215073721'),('20130215111127'),('20130215111141'),('20130217094251'),('20130602092539'),('20130710182539'),('20130713104233'),('20130713111657'),('20130729070143'),('20130819013955-redmine_dmsf'),('20130911193200'),('20131004113137'),('20131005100610'),('20131108141401-redmine_dmsf'),('20131108141402-redmine_dmsf'),('20131113141401-redmine_dmsf'),('20131113141402-redmine_dmsf'),('20131113141403-redmine_dmsf'),('20131124175346'),('20131210180802'),('20131214094309'),('20131215104612'),('20131218183023'),('20140228130325'),('20140314132501-redmine_dmsf'),('20140519133201-redmine_dmsf'),('20140903143914'),('20140920094058'),('20141013102501-redmine_dmsf'),('20141015132701-redmine_dmsf'),('20141029181752'),('20141029181824'),('20141109112308'),('20141122124142'),('20141205143001-redmine_dmsf'),('20150113194759'),('20150113211532'),('20150113213922'),('20150113213955'),('20150120152101-redmine_dmsf'),('20150130052716-redmine_dmsf'),('20150202010301-redmine_dmsf'),('20150208105930'),('20150510083747'),('20150525103953'),('20150526183158'),('20150528084820'),('20150528092912'),('20150528093249'),('20150705172511'),('20150725112753'),('20150730122707'),('20150730122735'),('20150910153701-redmine_dmsf'),('20150921204850'),('20150921210243'),('20151020141801-redmine_dmsf'),('20151020182334'),('20151020182731'),('20151021184614'),('20151021185456'),('20151021190616'),('20151024082034'),('20151025072118'),('20151031095005'),('20151209100001-redmine_dmsf'),('20160215125801-redmine_dmsf'),('20160217133001-redmine_dmsf'),('20160222140401-redmine_dmsf'),('20160404080304'),('20160416072926'),('20160421150501-redmine_dmsf'),('20160519161300'),('20160529063352'),('20161001122012'),('20161002133421'),('20161010081301'),('20161010081528'),('20161010081600'),('20161126094932'),('20161220091118'),('20161223133200-redmine_dmsf'),('20170103164701-redmine_dmsf'),('20170118142001-redmine_dmsf'),('20170204214753-redmine_dmsf'),('20170207050700'),('20170213152215-easy_gantt'),('20170214153223-redmine_dmsf'),('20170217141601-redmine_dmsf'),('20170224134615-easy_gantt'),('20170302015225'),('20170309214320'),('20170320051650'),('20170323131231-redmine_dmsf'),('20170330131901-redmine_dmsf'),('20170418090031'),('20170419144536'),('20170421101901-redmine_dmsf'),('20170422104901-redmine_dmsf'),('20170526144701-redmine_dmsf'),('20170723112801'),('20180501132547'),('20180913072918'),('20180923082945'),('20180923091603'),('20190206121100'),('20190315094151'),('20190315102101'),('20190510070108'),('20190620135549'),('20210925040513-polls'),('20211002151133-polls'),('20211019050359-user_staffs'),('20211026090202-user_staffs'),('20211026110053-user_staffs'),('20211029025639-user_staffs'),('20211029031639-user_staffs'),('20211029034443-user_staffs'),('20211029034604-user_staffs'),('20211029035957-user_staffs'),('20211029040050-user_staffs'),('20211030031713-user_staffs'),('20211030032206-user_staffs'),('20211030040627-user_staffs'),('20211030040736-user_staffs'),('20211030040954-user_staffs'),('20211030054241-user_staffs'),('20211030055820-user_staffs'),('20211031070643-user_staffs'),('20211031071912-user_staffs'),('20211031072510-user_staffs'),('21'),('22'),('23'),('24'),('25'),('26'),('27'),('28'),('29'),('3'),('3-redmine_dmsf'),('3-redmine_fpt_staffs'),('30'),('31'),('32'),('33'),('34'),('35'),('36'),('37'),('38'),('39'),('4'),('4-redmine_dmsf'),('40'),('41'),('42'),('43'),('44'),('45'),('46'),('47'),('48'),('49'),('5'),('5-redmine_dmsf'),('50'),('51'),('52'),('53'),('54'),('55'),('56'),('57'),('58'),('59'),('6'),('6-redmine_dmsf'),('60'),('61'),('62'),('63'),('64'),('65'),('66'),('67'),('68'),('69'),('7'),('7-redmine_dmsf'),('70'),('71'),('72'),('73'),('74'),('75'),('76'),('77'),('78'),('79'),('8'),('80'),('81'),('82'),('83'),('84'),('85'),('86'),('87'),('88'),('89'),('9'),('90'),('91'),('92'),('93'),('94'),('95'),('96'),('97'),('98'),('99');
+INSERT INTO `schema_migrations` VALUES ('1'),('1-redmine_dmsf'),('1-redmine_fpt_staffs'),('10'),('100'),('101'),('102'),('103'),('104'),('105'),('106'),('107'),('108'),('11'),('12'),('13'),('14'),('15'),('16'),('17'),('18'),('19'),('2'),('2-redmine_dmsf'),('2-redmine_fpt_staffs'),('20'),('20090214190337'),('20090312172426'),('20090312194159'),('20090318181151'),('20090323224724'),('20090401221305'),('20090401231134'),('20090403001910'),('20090406161854'),('20090425161243'),('20090503121501'),('20090503121505'),('20090503121510'),('20090614091200'),('20090704172350'),('20090704172355'),('20090704172358'),('20091010093521'),('20091017212227'),('20091017212457'),('20091017212644'),('20091017212938'),('20091017213027'),('20091017213113'),('20091017213151'),('20091017213228'),('20091017213257'),('20091017213332'),('20091017213444'),('20091017213536'),('20091017213642'),('20091017213716'),('20091017213757'),('20091017213835'),('20091017213910'),('20091017214015'),('20091017214107'),('20091017214136'),('20091017214236'),('20091017214308'),('20091017214336'),('20091017214406'),('20091017214440'),('20091017214519'),('20091017214611'),('20091017214644'),('20091017214720'),('20091017214750'),('20091025163651'),('20091108092559'),('20091114105931'),('20091123212029'),('20091205124427'),('20091220183509'),('20091220183727'),('20091220184736'),('20091225164732'),('20091227112908'),('20100129193402'),('20100129193813'),('20100221100219'),('20100313132032'),('20100313171051'),('20100705164950'),('20100819172912'),('20101104182107'),('20101107130441'),('20101114115114'),('20101114115359'),('20110220160626'),('20110223180944'),('20110223180953'),('20110224000000'),('20110226120112'),('20110226120132'),('20110227125750'),('20110228000000'),('20110228000100'),('20110401192910'),('20110408103312'),('20110412065600'),('20110511000000'),('20110902000000'),('20111201201315'),('20120115143024'),('20120115143100'),('20120115143126'),('20120127174243'),('20120205111326'),('20120223110929'),('20120301153455'),('20120422150750'),('20120705074331'),('20120707064544'),('20120714122000'),('20120714122100'),('20120714122200'),('20120731164049'),('20120822100401-redmine_dmsf'),('20120822100402-redmine_dmsf'),('20120822100403-redmine_dmsf'),('20120822100404-redmine_dmsf'),('20120930112914'),('20121026002032'),('20121026003537'),('20121209123234'),('20121209123358'),('20121213084931'),('20130110122628'),('20130201184705'),('20130202090625'),('20130207175206'),('20130207181455'),('20130215073721'),('20130215111127'),('20130215111141'),('20130217094251'),('20130602092539'),('20130710182539'),('20130713104233'),('20130713111657'),('20130729070143'),('20130819013955-redmine_dmsf'),('20130911193200'),('20131004113137'),('20131005100610'),('20131108141401-redmine_dmsf'),('20131108141402-redmine_dmsf'),('20131113141401-redmine_dmsf'),('20131113141402-redmine_dmsf'),('20131113141403-redmine_dmsf'),('20131124175346'),('20131210180802'),('20131214094309'),('20131215104612'),('20131218183023'),('20140228130325'),('20140314132501-redmine_dmsf'),('20140519133201-redmine_dmsf'),('20140903143914'),('20140920094058'),('20141013102501-redmine_dmsf'),('20141015132701-redmine_dmsf'),('20141029181752'),('20141029181824'),('20141109112308'),('20141122124142'),('20141205143001-redmine_dmsf'),('20150113194759'),('20150113211532'),('20150113213922'),('20150113213955'),('20150120152101-redmine_dmsf'),('20150130052716-redmine_dmsf'),('20150202010301-redmine_dmsf'),('20150208105930'),('20150510083747'),('20150525103953'),('20150526183158'),('20150528084820'),('20150528092912'),('20150528093249'),('20150705172511'),('20150725112753'),('20150730122707'),('20150730122735'),('20150910153701-redmine_dmsf'),('20150921204850'),('20150921210243'),('20151020141801-redmine_dmsf'),('20151020182334'),('20151020182731'),('20151021184614'),('20151021185456'),('20151021190616'),('20151024082034'),('20151025072118'),('20151031095005'),('20151209100001-redmine_dmsf'),('20160215125801-redmine_dmsf'),('20160217133001-redmine_dmsf'),('20160222140401-redmine_dmsf'),('20160404080304'),('20160416072926'),('20160421150501-redmine_dmsf'),('20160519161300'),('20160529063352'),('20161001122012'),('20161002133421'),('20161010081301'),('20161010081528'),('20161010081600'),('20161126094932'),('20161220091118'),('20161223133200-redmine_dmsf'),('20170103164701-redmine_dmsf'),('20170118142001-redmine_dmsf'),('20170204214753-redmine_dmsf'),('20170207050700'),('20170213152215-easy_gantt'),('20170214153223-redmine_dmsf'),('20170217141601-redmine_dmsf'),('20170224134615-easy_gantt'),('20170302015225'),('20170309214320'),('20170320051650'),('20170323131231-redmine_dmsf'),('20170330131901-redmine_dmsf'),('20170418090031'),('20170419144536'),('20170421101901-redmine_dmsf'),('20170422104901-redmine_dmsf'),('20170526144701-redmine_dmsf'),('20170723112801'),('20180501132547'),('20180913072918'),('20180923082945'),('20180923091603'),('20190206121100'),('20190315094151'),('20190315102101'),('20190510070108'),('20190620135549'),('20210925040513-polls'),('20211002151133-polls'),('20211019050359-user_staffs'),('20211026090202-user_staffs'),('20211026110053-user_staffs'),('20211029025639-user_staffs'),('20211029031639-user_staffs'),('20211029034443-user_staffs'),('20211029034604-user_staffs'),('20211029035957-user_staffs'),('20211029040050-user_staffs'),('20211030031713-user_staffs'),('20211030032206-user_staffs'),('20211030040627-user_staffs'),('20211030040736-user_staffs'),('20211030040954-user_staffs'),('20211030054241-user_staffs'),('20211030055820-user_staffs'),('20211031070643-user_staffs'),('20211031071912-user_staffs'),('20211031072510-user_staffs'),('20211104092827-user_staffs'),('20211104095953-user_staffs'),('20211110032250-user_staffs'),('20211110032831-user_staffs'),('20211110034210-user_staffs'),('20211110034454-user_staffs'),('20211111033005-user_staffs'),('21'),('22'),('23'),('24'),('25'),('26'),('27'),('28'),('29'),('3'),('3-redmine_dmsf'),('3-redmine_fpt_staffs'),('30'),('31'),('32'),('33'),('34'),('35'),('36'),('37'),('38'),('39'),('4'),('4-redmine_dmsf'),('40'),('41'),('42'),('43'),('44'),('45'),('46'),('47'),('48'),('49'),('5'),('5-redmine_dmsf'),('50'),('51'),('52'),('53'),('54'),('55'),('56'),('57'),('58'),('59'),('6'),('6-redmine_dmsf'),('60'),('61'),('62'),('63'),('64'),('65'),('66'),('67'),('68'),('69'),('7'),('7-redmine_dmsf'),('70'),('71'),('72'),('73'),('74'),('75'),('76'),('77'),('78'),('79'),('8'),('80'),('81'),('82'),('83'),('84'),('85'),('86'),('87'),('88'),('89'),('9'),('90'),('91'),('92'),('93'),('94'),('95'),('96'),('97'),('98'),('99');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1903,7 +1953,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'mail_from','trucanh88879@gmail.com','2021-10-05 15:25:51'),(2,'bcc_recipients','1','2021-10-05 15:25:51'),(3,'plain_text_mail','0','2021-10-05 15:25:51'),(4,'show_status_changes_in_mail_subject','1','2021-10-05 15:25:51'),(5,'notified_events','---\n- issue_added\n- issue_updated\n- news_added\n- news_comment_added\n- document_added\n- file_added\n- message_posted\n- wiki_content_added\n- wiki_content_updated\n','2021-10-05 15:25:51'),(6,'emails_header','','2021-10-05 15:25:51'),(7,'emails_footer','You have received this notification because you have either subscribed to it, or are involved in it.\r\nTo change your notification preferences, please click here: http://hostname/my/account','2021-10-05 15:25:51'),(8,'ui_theme','','2021-10-08 14:56:53'),(9,'default_language','en','2021-10-07 05:47:46'),(10,'force_default_language_for_anonymous','0','2021-10-07 05:47:46'),(11,'force_default_language_for_loggedin','0','2021-10-07 05:47:46'),(12,'start_of_week','','2021-10-07 05:47:46'),(13,'date_format','','2021-10-07 05:47:46'),(14,'time_format','','2021-10-07 05:47:46'),(15,'timespan_format','decimal','2021-10-07 05:47:46'),(16,'user_format','firstname_lastname','2021-10-07 05:47:46'),(17,'gravatar_enabled','0','2021-10-07 05:47:46'),(18,'thumbnails_enabled','1','2021-10-07 05:47:46'),(19,'thumbnails_size','100','2021-10-07 05:47:46'),(20,'new_item_menu_tab','2','2021-10-07 05:47:46'),(21,'plugin_redmine_fpt_staffs','--- {}\n','2021-10-15 15:22:00');
+INSERT INTO `settings` VALUES (1,'mail_from','a@gmail.com','2021-11-14 08:35:06'),(2,'bcc_recipients','1','2021-10-05 15:25:51'),(3,'plain_text_mail','0','2021-10-05 15:25:51'),(4,'show_status_changes_in_mail_subject','1','2021-10-05 15:25:51'),(5,'notified_events','---\n- issue_added\n- issue_updated\n- news_added\n- news_comment_added\n- document_added\n- file_added\n- message_posted\n- wiki_content_added\n- wiki_content_updated\n','2021-10-05 15:25:51'),(6,'emails_header','Redmine testing','2021-11-14 08:33:02'),(7,'emails_footer','You have received this notification because you have either subscribed to it, or are involved in it.\r\nTo change your notification preferences, please click here: http://hostname/my/account','2021-10-05 15:25:51'),(8,'ui_theme','','2021-11-15 09:01:09'),(9,'default_language','en','2021-10-07 05:47:46'),(10,'force_default_language_for_anonymous','0','2021-10-07 05:47:46'),(11,'force_default_language_for_loggedin','0','2021-10-07 05:47:46'),(12,'start_of_week','','2021-10-07 05:47:46'),(13,'date_format','','2021-10-07 05:47:46'),(14,'time_format','','2021-10-07 05:47:46'),(15,'timespan_format','decimal','2021-10-07 05:47:46'),(16,'user_format','firstname_lastname','2021-10-07 05:47:46'),(17,'gravatar_enabled','0','2021-10-07 05:47:46'),(18,'thumbnails_enabled','1','2021-10-07 05:47:46'),(19,'thumbnails_size','100','2021-10-07 05:47:46'),(20,'new_item_menu_tab','2','2021-10-07 05:47:46'),(21,'plugin_redmine_fpt_staffs','--- {}\n','2021-10-15 15:22:00');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2108,7 +2158,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `tokens_value` (`value`),
   KEY `index_tokens_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2117,7 +2167,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (3,1,'feeds','fe043d0deede10a5f32f1fc4785bb13be182fb02','2021-09-29 14:42:49','2021-09-29 14:42:49'),(38,1,'session','41d43647652d765c3ab65c56713b6d991acf54f5','2021-10-31 07:01:03','2021-10-31 07:03:24'),(39,1,'session','57f52a4334b547a58f1a84ccdf6f95d0fd409d17','2021-10-31 14:18:19','2021-10-31 14:56:52'),(40,1,'session','2b22ec7dff0f5ed8422a2726e314d1021bda6bfc','2021-11-01 03:20:35','2021-11-01 04:15:51'),(41,1,'session','e5e462dc64a07d93c6ba3a086d7d7c1868cfb036','2021-11-01 06:41:07','2021-11-01 06:53:34'),(42,1,'session','549f08c4cfc5682141b36f2fd4076c4aa7d575d9','2021-11-01 14:46:18','2021-11-01 15:22:21'),(43,1,'session','5cdd179e9c1a88c171c5578280ef6c12749f6d44','2021-11-02 03:27:02','2021-11-02 05:11:56'),(44,1,'session','687b4683ec6d74158ffa00142cb9929c6f46ddfc','2021-11-03 03:58:16','2021-11-03 04:20:20'),(45,1,'session','44a82493a1752f174061528cc65dfd3ca5f51a57','2021-11-03 07:30:23','2021-11-03 08:13:48'),(46,1,'session','4fc558b6c56ab23d9731835921ca09c89d1b9bb0','2021-11-03 09:47:26','2021-11-03 10:51:50'),(47,1,'session','aa31461370ded1111a2f0e8a75c904e0c0d62714','2021-11-03 14:55:47','2021-11-03 14:56:00');
+INSERT INTO `tokens` VALUES (3,1,'feeds','fe043d0deede10a5f32f1fc4785bb13be182fb02','2021-09-29 14:42:49','2021-09-29 14:42:49'),(55,1,'session','5994948ab6e7bda97dd2b8950d1b623f3685130c','2021-11-08 07:43:09','2021-11-08 09:07:34'),(56,1,'session','0a043aacaeecdcabf1d0d39a5ed1420ba06f1817','2021-11-09 05:03:31','2021-11-09 05:03:41'),(57,1,'session','2146c853b1f0a382e7f6db8b3ba285f195f84b1d','2021-11-09 14:48:22','2021-11-09 14:49:29'),(58,1,'session','e406fc383f862778943d9f58490836958952280a','2021-11-10 03:09:29','2021-11-10 04:48:13'),(59,1,'session','e36fcef86c0bc91136426688d558f2973a611355','2021-11-11 03:15:52','2021-11-11 03:47:51'),(60,1,'session','0cba130e3f3abb32e1b3412b6ff82e6e1ff93808','2021-11-12 14:39:58','2021-11-12 15:41:19'),(61,1,'session','cb68c5a1f0d5ed44bc23b976803807e0716f877b','2021-11-13 03:08:13','2021-11-13 04:39:35'),(62,1,'session','9fa27e25a9f517b43bbaf115779f77ba7f55328d','2021-11-14 07:38:12','2021-11-14 09:54:35'),(63,1,'session','f6e2957ac0d950b2c59325244727841cfdded1af','2021-11-15 05:27:16','2021-11-15 05:27:50'),(64,1,'session','926dac9c75b9a7344b7391c11337d4726620b580','2021-11-15 07:58:29','2021-11-15 09:01:13');
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2166,7 +2216,7 @@ CREATE TABLE `user_preferences` (
   `time_zone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_user_preferences_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2175,7 +2225,7 @@ CREATE TABLE `user_preferences` (
 
 LOCK TABLES `user_preferences` WRITE;
 /*!40000 ALTER TABLE `user_preferences` DISABLE KEYS */;
-INSERT INTO `user_preferences` VALUES (1,1,'---\n:no_self_notified: \'1\'\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n:recently_used_project_ids: \'1,3,2\'\n:gantt_zoom: 2\n:gantt_months: 6\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n:recently_used_projects: 3\n:history_default_tab: notes\n',1,''),(5,8,'---\n:no_self_notified: \'1\'\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n:recently_used_projects: 3\n:history_default_tab: notes\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n',1,''),(6,9,'---\n:no_self_notified: \'1\'\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n:recently_used_projects: 3\n:history_default_tab: notes\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n',1,'');
+INSERT INTO `user_preferences` VALUES (1,1,'---\n:no_self_notified: \'1\'\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n:recently_used_project_ids: \'3,1,2\'\n:gantt_zoom: 2\n:gantt_months: 6\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n:recently_used_projects: 3\n:history_default_tab: notes\n',1,''),(23,26,'---\n:no_self_notified: \'1\'\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n:recently_used_projects: 3\n:history_default_tab: notes\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n',1,'');
 /*!40000 ALTER TABLE `user_preferences` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2211,7 +2261,6 @@ CREATE TABLE `users` (
   `sex` tinyint(1) DEFAULT NULL,
   `active_kpi` tinyint(1) DEFAULT NULL,
   `active_bug` tinyint(1) DEFAULT NULL,
-  `team_leader` int DEFAULT NULL,
   `type_staff` int DEFAULT NULL,
   `hardskill` varchar(255) DEFAULT NULL,
   `softskill` varchar(255) DEFAULT NULL,
@@ -2221,7 +2270,6 @@ CREATE TABLE `users` (
   `due_date_contract` datetime DEFAULT NULL,
   `start_date_off` datetime DEFAULT NULL,
   `end_date_off` datetime DEFAULT NULL,
-  `place_birth` varchar(255) DEFAULT NULL,
   `permanent_address` varchar(255) DEFAULT NULL,
   `temporary_address` varchar(255) DEFAULT NULL,
   `identity_card` varchar(255) DEFAULT NULL,
@@ -2234,6 +2282,11 @@ CREATE TABLE `users` (
   `department_id` bigint DEFAULT NULL,
   `job_position_id` bigint DEFAULT NULL,
   `location_id` bigint DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `contract_id` bigint DEFAULT NULL,
+  `work_id` bigint DEFAULT NULL,
+  `team_leader` varchar(255) DEFAULT NULL,
+  `place_birth` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_users_on_id_and_type` (`id`,`type`),
   KEY `index_users_on_auth_source_id` (`auth_source_id`),
@@ -2241,8 +2294,10 @@ CREATE TABLE `users` (
   KEY `index_users_on_center_id` (`center_id`),
   KEY `index_users_on_department_id` (`department_id`),
   KEY `index_users_on_job_position_id` (`job_position_id`),
-  KEY `index_users_on_location_id` (`location_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `index_users_on_location_id` (`location_id`),
+  KEY `index_users_on_contract_id` (`contract_id`),
+  KEY `index_users_on_work_id` (`work_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2251,7 +2306,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','c69f5280e272ca2d9851b6028d1dd2411465a0a9','Redmine','Admin',1,1,'2021-11-03 14:55:47','',NULL,'2021-09-29 14:37:52','2021-10-30 11:04:41','User',NULL,'all','c8f457d2d97f4b2a07a80b1ee8ed0c9e',0,'2021-10-30 11:04:41','',0,'2021-10-30 00:00:00',1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,22,41,1,50),(2,'','','','Anonymous users',0,1,NULL,'',NULL,'2021-09-29 14:38:11','2021-09-29 14:38:11','GroupAnonymous',NULL,'',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'','','','Non member users',0,1,NULL,'',NULL,'2021-09-29 14:38:11','2021-09-29 14:38:11','GroupNonMember',NULL,'',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'','','','Anonymous',0,0,NULL,'',NULL,'2021-09-29 14:40:41','2021-09-29 14:40:41','AnonymousUser',NULL,'only_my_events',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'trucanh_2','a8742a7ee1a56518b4027e0e445092afe358d2e4','Truc','Tran Thi',0,1,NULL,'en',NULL,'2021-10-19 06:50:37','2021-10-30 15:23:12','User',NULL,'only_my_events','d3bcc7d22cdb6b43d391bb346a766039',1,'2021-10-30 15:23:12','anhtructran011@gmail.com',1234570000,'2000-11-01 00:00:00',0,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,22,41,1,190),(9,'test','191859f74e857bdce6a154d526757bf503a0c315','Trần Văn','A',0,1,NULL,'en',NULL,'2021-10-27 11:17:48','2021-10-31 14:31:22','User',NULL,'only_my_events','a780d1f6b97325c33e218817a4bc0b20',1,'2021-10-31 14:31:22','',1234570000,NULL,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,36,41,1,5);
+INSERT INTO `users` VALUES (1,'admin','c69f5280e272ca2d9851b6028d1dd2411465a0a9','Redmine','Admin',1,1,'2021-11-15 07:58:29','',NULL,'2021-09-29 14:37:52','2021-10-30 11:04:41','User',NULL,'all','c8f457d2d97f4b2a07a80b1ee8ed0c9e',0,'2021-10-30 11:04:41','',0,'2021-10-30 00:00:00',1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,22,41,1,50,NULL,NULL,NULL,NULL,NULL),(2,'','','','Anonymous users',0,1,NULL,'',NULL,'2021-09-29 14:38:11','2021-09-29 14:38:11','GroupAnonymous',NULL,'',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'','','','Non member users',0,1,NULL,'',NULL,'2021-09-29 14:38:11','2021-09-29 14:38:11','GroupNonMember',NULL,'',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'','','','Anonymous',0,0,NULL,'',NULL,'2021-09-29 14:40:41','2021-09-29 14:40:41','AnonymousUser',NULL,'only_my_events',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(26,'admin2','f9800cd67fbc7544afc624c872ca7fcf2360054a','Truc Anh','Tran',0,1,NULL,'en',NULL,'2021-11-14 08:35:54','2021-11-14 08:35:54','User',NULL,'only_my_events','2c099e31811300db3acd11c5ddfc7b18',1,'2021-11-14 08:35:54','',0,NULL,1,0,0,NULL,'','','',NULL,NULL,NULL,NULL,NULL,'','','',NULL,'','','','',36,41,1,5,NULL,1,1,'ANT54','Thành phố Hà Nội');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2366,7 +2421,7 @@ CREATE TABLE `wiki_content_versions` (
   PRIMARY KEY (`id`),
   KEY `wiki_content_versions_wcid` (`wiki_content_id`),
   KEY `index_wiki_content_versions_on_updated_on` (`updated_on`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2375,6 +2430,7 @@ CREATE TABLE `wiki_content_versions` (
 
 LOCK TABLES `wiki_content_versions` WRITE;
 /*!40000 ALTER TABLE `wiki_content_versions` DISABLE KEYS */;
+INSERT INTO `wiki_content_versions` VALUES (1,1,1,1,_binary 'h1. Wiki','','','2021-11-14 08:34:10',1);
 /*!40000 ALTER TABLE `wiki_content_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2396,7 +2452,7 @@ CREATE TABLE `wiki_contents` (
   PRIMARY KEY (`id`),
   KEY `wiki_contents_page_id` (`page_id`),
   KEY `index_wiki_contents_on_author_id` (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2405,6 +2461,7 @@ CREATE TABLE `wiki_contents` (
 
 LOCK TABLES `wiki_contents` WRITE;
 /*!40000 ALTER TABLE `wiki_contents` DISABLE KEYS */;
+INSERT INTO `wiki_contents` VALUES (1,1,1,'h1. Wiki','','2021-11-14 08:34:10',1);
 /*!40000 ALTER TABLE `wiki_contents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2426,7 +2483,7 @@ CREATE TABLE `wiki_pages` (
   KEY `wiki_pages_wiki_id_title` (`wiki_id`,`title`),
   KEY `index_wiki_pages_on_wiki_id` (`wiki_id`),
   KEY `index_wiki_pages_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2435,6 +2492,7 @@ CREATE TABLE `wiki_pages` (
 
 LOCK TABLES `wiki_pages` WRITE;
 /*!40000 ALTER TABLE `wiki_pages` DISABLE KEYS */;
+INSERT INTO `wiki_pages` VALUES (1,2,'Wiki','2021-11-14 08:34:10',0,NULL);
 /*!40000 ALTER TABLE `wiki_pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2530,6 +2588,30 @@ LOCK TABLES `workflows` WRITE;
 INSERT INTO `workflows` VALUES (1,1,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(2,1,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(3,1,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(4,1,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(5,1,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(6,1,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(7,1,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(8,1,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(9,1,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(10,1,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(11,1,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(12,1,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(13,1,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(14,1,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(15,1,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(16,1,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(17,1,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(18,1,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(19,1,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(20,1,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(21,1,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(22,1,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(23,1,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(24,1,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(25,1,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(26,1,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(27,1,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(28,1,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(29,1,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(30,1,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(31,2,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(32,2,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(33,2,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(34,2,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(35,2,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(36,2,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(37,2,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(38,2,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(39,2,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(40,2,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(41,2,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(42,2,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(43,2,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(44,2,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(45,2,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(46,2,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(47,2,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(48,2,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(49,2,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(50,2,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(51,2,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(52,2,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(53,2,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(54,2,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(55,2,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(56,2,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(57,2,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(58,2,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(59,2,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(60,2,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(61,3,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(62,3,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(63,3,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(64,3,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(65,3,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(66,3,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(67,3,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(68,3,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(69,3,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(70,3,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(71,3,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(72,3,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(73,3,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(74,3,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(75,3,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(76,3,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(77,3,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(78,3,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(79,3,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(80,3,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(81,3,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(82,3,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(83,3,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(84,3,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(85,3,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(86,3,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(87,3,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(88,3,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(89,3,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(90,3,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(91,1,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(92,1,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(93,1,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(94,1,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(95,1,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(96,1,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(97,1,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(98,1,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(99,1,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(100,1,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(101,1,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(102,1,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(103,1,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(104,2,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(105,2,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(106,2,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(107,2,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(108,2,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(109,2,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(110,2,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(111,2,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(112,2,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(113,2,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(114,2,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(115,2,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(116,2,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(117,3,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(118,3,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(119,3,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(120,3,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(121,3,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(122,3,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(123,3,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(124,3,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(125,3,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(126,3,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(127,3,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(128,3,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(129,3,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(130,1,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(131,1,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(132,1,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(133,1,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(134,1,3,4,5,0,0,'WorkflowTransition',NULL,NULL),(135,2,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(136,2,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(137,2,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(138,2,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(139,2,3,4,5,0,0,'WorkflowTransition',NULL,NULL),(140,3,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(141,3,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(142,3,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(143,3,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(144,3,3,4,5,0,0,'WorkflowTransition',NULL,NULL);
 /*!40000 ALTER TABLE `workflows` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `works`
+--
+
+DROP TABLE IF EXISTS `works`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `works` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `works`
+--
+
+LOCK TABLES `works` WRITE;
+/*!40000 ALTER TABLE `works` DISABLE KEYS */;
+INSERT INTO `works` VALUES (1,'Nghỉ tạm - thai sản'),(2,'Nghỉ tạm - không lương'),(3,'Nghỉ việc - gia đình'),(4,'Nghỉ việc - vì học tiếp'),(5,'Nghỉ việc - định hướng mới'),(6,'Nghỉ việc - do thanh lý');
+/*!40000 ALTER TABLE `works` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -2540,4 +2622,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-03 15:05:08
+-- Dump completed on 2021-11-15 14:34:13
